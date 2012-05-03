@@ -2,6 +2,7 @@
 
 #define MAXCOMMAND 4
 #define MAXBUILDERLETTER 13
+#define MAXSCRAMBLELETTER 17
 
 class CheatsIO
 {
@@ -22,22 +23,26 @@ public:
 	bool GetInputCommand();
 	bool DispatchInput(bool force=false);
 
+
 	void DoUpdate(bool force=false);
 	void DoUpdateBuilder(bool force=false);
+	void DoUpdateScramble(bool force=false);
 	void DoClear();
 	void ClearData();
 	void ClearResult();
 
 	char GetLetterScore(char letter);
+	char GetLengthScore(char lenghth);
 
 	void AppendLog(const char * logstr);
 
 	void FillRenderPos();
 
-	struct length8
+	struct length16
 	{
-		char word[9];
+		char word[17];
 	};
+	char ScrambleNextAll(length16 *word, char * used, char index, char nowpos, char letterindex);
 
 public:
 	static CheatsIO cheatsio;
@@ -47,13 +52,25 @@ public:
 	hgeFont * font;
 	bool init;
 
-	list<length8> l4words;
-	list<length8> l5words;
-	list<length8> l6words;
-	list<length8> l7words;
-	list<length8> l8words;
+	list<length16> l2words;
+	list<length16> l3words;
 
-	length8 nowguess;
+	list<length16> l4words;
+	list<length16> l5words;
+	list<length16> l6words;
+	list<length16> l7words;
+	list<length16> l8words;
+
+	list<length16> l9words;
+	list<length16> l10words;
+	list<length16> l11words;
+	list<length16> l12words;
+	list<length16> l13words;
+	list<length16> l14words;
+	list<length16> l15words;
+	list<length16> l16words;
+
+	length16 nowguess;
 	char possiblech;
 	list<char> striked;
 
@@ -62,7 +79,7 @@ public:
 
 	int possiblecount[26];
 	float percentage[26];
-	list<length8> resultwords;
+	list<length16> resultwords;
 
 	int logtimer;
 
@@ -72,18 +89,28 @@ public:
 	char mode;
 	char builderletters[MAXBUILDERLETTER];
 
+	char scrambleletters[MAXSCRAMBLELETTER];
+
 	class BuilderWord
 	{
 	public:
 		BuilderWord();
 		~BuilderWord();
 
-		length8 word;
-		char score;
+		length16 word;
+		int score;
+		char step[MAXSCRAMBLELETTER];
 		bool operator < (const BuilderWord &right) const{return this->score < right.score;};
 	};
 	list<BuilderWord> builderwords;
+	list<BuilderWord> scramblewords;
 	char page;
+
+#define MULST_DL	'%'
+#define MULST_TL	'^'
+#define MULST_DW	'&'
+#define MULST_TW	'*'
+char mulstate[MAXSCRAMBLELETTER];
 
 	struct RenderPos
 	{
@@ -103,23 +130,26 @@ public:
 		bool IsInRect(float x, float y);
 
 		RenderPos rect;
-		bool active;
-		bool touchdown;
 
 		static TouchButton * binding[TOUCH_TOUCHMAX];
 	};
 
 
+#define RESULTLISTROWB	12
+#define RESULTLISTCOLB	4
 	struct TouchButtonList 
 	{
-		TouchButton az[26];
+		TouchButton az[27];
 
 		TouchButton l8[8];
+		TouchButton ll8[8];
 		TouchButton guess;
 		TouchButton results;
 
 		TouchButton bline[2];
 		TouchButton bresults;
+
+		TouchButton sline[4];
 
 		TouchButton changemode;
 		TouchButton backspace;
@@ -127,13 +157,21 @@ public:
 		TouchButton enter;
 		TouchButton pagedown;
 		TouchButton pageup;
+
+		TouchButton mul[4];
+
+		TouchButton sdir[16];
+
+		TouchButton sresults[RESULTLISTROWB*RESULTLISTCOLB];
 	};
 
 	TouchButtonList tbl;
 
-	void _RenderFrame(RenderPos * rect, float edge = 1.0f, int thick=2, float corner=2.0f);
+	void _RenderFrame(RenderPos * rect, DWORD col=0xffffffff, float edge = 1.0f, int thick=2, float corner=2.0f);
+	void _RenderLine(RenderPos * pos1, RenderPos * pos2, DWORD col=0xffffffff, float xoffset=0, float yoffset=0, int thick=2);
 
 	bool mousedown;
+	char nowpointingresult;
 
 	char logstring[M_STRMAX];
 };
