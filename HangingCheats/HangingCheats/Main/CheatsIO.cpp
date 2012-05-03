@@ -1097,6 +1097,22 @@ void CheatsIO::DoUpdateBuilder(bool force)
 {
 	if (strlen(builderletters) >= MAXBUILDERLETTER-1 || force)
 	{
+		if (!force)
+		{
+			bool toret = true;
+			for (int i=0; i<8; i++)
+			{
+				if (mulstate[i])
+				{
+					toret = false;
+					break;
+				}
+			}
+			if (toret)
+			{
+				return;
+			}
+		}
 		builderwords.clear();
 		page = 0;
 		for (int i=8; i>=4; i--)
@@ -1766,6 +1782,10 @@ bool CheatsIO::RenderFunc()
 						{
 							linebuffer[i][j] = '_';
 						}
+						else
+						{
+							linebuffer[i][j] += 'A' - 'a';
+						}
 					}
 				}
 
@@ -1977,6 +1997,10 @@ bool CheatsIO::RenderFunc()
 								{
 									hsv.h = (float)dispit->step[i]/(float)maxstep/3;
 									_RenderFrame(&(tbl.sdir[i].rect), hsv.GetHWColor());
+								}
+								else
+								{
+									_RenderFrame(&(tbl.sdir[i].rect), 0x40ffffff);
 								}
 								/*
 								if (i < maxstep-1)
