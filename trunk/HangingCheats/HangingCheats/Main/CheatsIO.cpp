@@ -603,17 +603,17 @@ bool CheatsIO::TouchToCommand(bool * force)
 				}
 				if (tbinding == &(tbl.pageup))
 				{
-					if (page < 8)
+					if (page > 0)
 					{
-						page++;
+						page--;
 					}
 					return false;
 				}
 				if (tbinding == &(tbl.pagedown))
 				{
-					if (page > 0)
+					if (page < 8)
 					{
-						page--;
+						page++;
 					}
 					return false;
 				}
@@ -715,6 +715,44 @@ bool CheatsIO::GetInputCommand()
 		return false;
 	}
 
+	// for PC
+	if (mode == GAMEMODE_SCRAMBLE && scramblewords.size())
+	{
+		bool toret = false;
+		if (hge->Input_GetDIKey(DIK_LEFT, DIKEY_DOWN))
+		{
+			nowpointingresult--;
+			toret = true;
+		}
+		if (hge->Input_GetDIKey(DIK_RIGHT, DIKEY_DOWN))
+		{
+			nowpointingresult++;
+			toret = true;
+		}
+		if (hge->Input_GetDIKey(DIK_UP, DIKEY_DOWN))
+		{
+			nowpointingresult -= RESULTLISTCOLB;
+			toret = true;
+		}
+		if (hge->Input_GetDIKey(DIK_DOWN, DIKEY_DOWN))
+		{
+			nowpointingresult += RESULTLISTCOLB;
+			toret = true;
+		}
+
+		if (toret)
+		{
+			if (nowpointingresult >= RESULTLISTROWB*RESULTLISTCOLB)
+			{
+				nowpointingresult = RESULTLISTROWB*RESULTLISTCOLB-1;
+			}
+			if (nowpointingresult < 0)
+			{
+				nowpointingresult = 0;
+			}
+			return false;
+		}
+	}
 	char chcode = 0xff;
 	for (int i=1; i<256; i++)
 	{
@@ -756,35 +794,6 @@ bool CheatsIO::GetInputCommand()
 	}
 	DispatchInput(force);
 
-	// for PC
-	if (mode == GAMEMODE_SCRAMBLE && scramblewords.size())
-	{
-		if (hge->Input_GetDIKey(DIK_LEFT, DIKEY_DOWN))
-		{
-			nowpointingresult--;
-		}
-		if (hge->Input_GetDIKey(DIK_RIGHT, DIKEY_DOWN))
-		{
-			nowpointingresult++;
-		}
-		if (hge->Input_GetDIKey(DIK_UP, DIKEY_DOWN))
-		{
-			nowpointingresult -= RESULTLISTCOLB;
-		}
-		if (hge->Input_GetDIKey(DIK_DOWN, DIKEY_DOWN))
-		{
-			nowpointingresult += RESULTLISTCOLB;
-		}
-
-		if (nowpointingresult >= RESULTLISTROWB*RESULTLISTCOLB)
-		{
-			nowpointingresult = RESULTLISTROWB*RESULTLISTCOLB-1;
-		}
-		if (nowpointingresult < 0)
-		{
-			nowpointingresult = 0;
-		}
-	}
 
 	return false;
 }
@@ -898,7 +907,7 @@ bool CheatsIO::DispatchInput(bool force)
 		return true;
 	}
 
-	if (mode == GAMEMODE_SCRAMBLE)
+	else if (mode == GAMEMODE_SCRAMBLE)
 	{
 		if (force)
 		{
@@ -930,7 +939,7 @@ bool CheatsIO::DispatchInput(bool force)
 				return true;
 			}
 		}
-		if (scramblewords.size() && commandlist[0] >= '1' && commandlist[0] <= '6')
+		if (scramblewords.size() && commandlist[0] >= '1' && commandlist[0] <= '8')
 		{
 			page = commandlist[0] - '1';
 			ZeroMemory(&commandlist, sizeof(char)*MAXCOMMAND);
@@ -962,6 +971,13 @@ bool CheatsIO::DispatchInput(bool force)
 	{
 		DoClear();
 		wordlength = commandlist[1] - '0';
+		DoUpdate();
+		return true;
+	}
+	if (!wordlength && commandlist[0] >= '4' && commandlist[1] <= '8')
+	{
+		DoClear();
+		wordlength = commandlist[0] - '0';
 		DoUpdate();
 		return true;
 	}
@@ -1172,7 +1188,7 @@ void CheatsIO::DoUpdateBuilder(bool force)
 
 void CheatsIO::DoUpdateScramble(bool force/* =false */)
 {
-	if (strlen(scrambleletters) >= MAXSCRAMBLELETTER-1)
+	if (strlen(scrambleletters) >= MAXSCRAMBLELETTER-1 && force)
 	{
 		scramblewords.clear();
 		page = 0;
@@ -1717,7 +1733,7 @@ bool CheatsIO::RenderFunc()
 				}
 				for (int i=0; i<wordlength; i++)
 				{
-					tbuff[0] = nowguess.word[i];
+					tbuff[0] = nowguess.word[i]+'A'-'a';
 					if (!tbuff[0])
 					{
 						tbuff[0] = '_';
