@@ -265,6 +265,8 @@ void CheatsIO::Release()
 	mousedown = false;
 
 	ZeroMemory(TouchButton::binding, sizeof(TouchButton *)*TOUCH_TOUCHMAX);
+	
+	ZeroMemory(touches, sizeof(Touches)*TOUCH_TOUCHMAX);
 }
 
 void CheatsIO::AppendLog(const char * logstr)
@@ -338,6 +340,12 @@ void CheatsIO::UpdateInput()
 		char buffer[M_STRMAX];
 		sprintf(buffer, "%.2f, %.2f", x, y);
 		AppendLog(buffer);
+	}
+	
+	for (int i=0; i<TOUCH_TOUCHMAX; i++) {
+		if (touches[i].on) {
+			hge->Input_SetTouchPos(i, touches[i].x, touches[i].y);
+		}
 	}
 }
 
@@ -1709,9 +1717,13 @@ void CheatsIO::DoUpdate(bool force)
 
 bool CheatsIO::RenderFunc()
 {
+#if defined __WIN32
 	hge->Gfx_BeginScene();
-	hge->Gfx_Clear(0xff303030);
+#else
+	hge->Gfx_SetClipping(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+#endif
 
+	hge->Gfx_Clear(0x0);
 #define RESULTLISTROW	5
 #define RESULTLISTCOL	8
 
@@ -1979,12 +1991,10 @@ bool CheatsIO::RenderFunc()
 						{
 							if (dispit->step[i])
 							{
-								sprintf(tbuff, "%d", dispit->step[i]);
 								if (dispit->step[i] > maxstep)
 								{
 									maxstep = dispit->step[i];
 								}
-								font->RenderEx(tbl.sdir[i].rect.x, tbl.sdir[i].rect.y, HGETEXT_CENTER|HGETEXT_MIDDLE, tbuff, 0.75f);
 							}
 						}
 
@@ -2002,31 +2012,22 @@ bool CheatsIO::RenderFunc()
 								{
 									_RenderFrame(&(tbl.sdir[i].rect), 0x40ffffff);
 								}
-								/*
-								if (i < maxstep-1)
-								{
-									for (int j=0; j<16; j++)
-									{
-										if (dispit->step[j] == i+1)
-										{
-											for (int k=0; k<16; k++)
-											{
-												if (dispit->step[k] == i+2)
-												{
-													_RenderLine(&(tbl.sres[j].rect), &(tbl.sres[k].rect), 0xffffff00, -4, -4);
-													break;
-												}
-											}
-											break;
-										}
-									}
-								}*/
+							}
+							for (int i=0; i<16; i++) {
+								
+								if (dispit->step[i]) {
+									sprintf(tbuff, "%d", dispit->step[i]);
+									hsv.h = (float)dispit->step[i]/(float)maxstep/3;
+									font->SetColor(hsv.GetHWColor());
+									font->RenderEx(tbl.sdir[i].rect.x, tbl.sdir[i].rect.y, HGETEXT_CENTER|HGETEXT_MIDDLE, tbuff, 0.75f);
+								}
 							}
 						}
 					}
 				}
 
 			}
+			font ->SetColor(0xffffffff);
 
 
 			if (!(mode == GAMEMODE_BUILDER && builderwords.size() || mode == GAMEMODE_SCRAMBLE && scramblewords.size()))

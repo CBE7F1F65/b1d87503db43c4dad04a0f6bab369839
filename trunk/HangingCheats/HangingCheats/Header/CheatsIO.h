@@ -174,4 +174,11 @@ char mulstate[MAXSCRAMBLELETTER];
 	char nowpointingresult;
 
 	char logstring[M_STRMAX];
+	
+	struct Touches {
+		float x;
+		float y;
+		bool on;
+	};
+	Touches touches[TOUCH_TOUCHMAX];
 };

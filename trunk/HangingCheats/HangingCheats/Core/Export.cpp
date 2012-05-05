@@ -64,6 +64,7 @@ void Export::clientSetMatrix(float _worldx, float _worldy, float _worldz)
 	hge->Math_MatrixIdentity(&matWorld);
 	hge->Math_MatrixTranslation(&matWorld, _worldx, _worldy, _worldz);	
 	hge->Gfx_SetTransform( D3DTS_WORLD, &matWorld );
+	
 
 //	if (hge->System_Is2DMode())
 //	{
@@ -101,8 +102,8 @@ void Export::clientSetMatrix(float _worldx, float _worldy, float _worldz)
 		);
 #else
 
-#ifdef __PSP
-
+#if defined __PSP
+	
 	float scaleval = SCREEN_HEIGHT / M_CLIENT_HEIGHT;
 	float offsetval = (SCREEN_WIDTH - M_CLIENT_WIDTH*scaleval)/2.0f;
 
@@ -149,12 +150,50 @@ void Export::clientSetMatrix(float _worldx, float _worldy, float _worldz)
 	matProj.m[3][1] = SCREEN_HEIGHT/2;
 	matProj.m[3][2] = SCREEN_HEIGHT/2;
 	matProj.m[3][3] = SCREEN_HEIGHT/2;
-#endif // __PSP
 
+
+#elif defined __IPHONE
+	
+	D3DXMATRIX matView;
+	D3DXMATRIX matProj;
+	
+	
+	float scaleval = SCREEN_WIDTH / M_CLIENT_HEIGHT;
+	float offsetval = (SCREEN_HEIGHT - M_CLIENT_WIDTH*scaleval)/2.0f;
+	
+	memcpy(&matView ,&(hge->Gfx_GetTransform(D3DTS_VIEW)), sizeof(D3DXMATRIX));
+	memcpy(&matProj ,&(hge->Gfx_GetTransform(D3DTS_PROJECTION)), sizeof(D3DXMATRIX));
+	
+	
+	matProj.m[0][0] = SCREEN_HEIGHT/SCREEN_WIDTH;
+	matProj.m[0][1] = 0.0f;
+	matProj.m[0][2] = 0.0f;
+	matProj.m[0][3] = 0.0f;
+	matProj.m[1][0] = 0.0f;
+	matProj.m[1][1] = -1.0f;
+	matProj.m[1][2] = 0.0f;
+	matProj.m[1][3] = 0.0f;
+	matProj.m[2][0] = 0.0f;
+	matProj.m[2][1] = 0.0f;
+	matProj.m[2][2] = -1.0f;
+	matProj.m[2][3] = -1.0f;
+	matProj.m[3][0] = -SCREEN_HEIGHT/2;
+	matProj.m[3][1] = SCREEN_HEIGHT/2;
+	matProj.m[3][2] = SCREEN_HEIGHT/2;
+	matProj.m[3][3] = SCREEN_HEIGHT/2;
+	
+	hge->Math_MatrixIdentity(&matView);
+	
+	hge->Math_MatrixRotationZ(&matView, M_PI_2);
+	hge->Math_MatrixRotationX(&matView, M_PI_2);
+//	hge->Math_MatrixTranslation(&matView, 0, 0, 0);
+//	hge->Math_MatrixScaling(&matView, scaleval, scaleval, scaleval);
+#endif
+	
 #endif
 	
 	hge->Gfx_SetTransform( D3DTS_VIEW, &matView );
-	hge->Gfx_SetTransform(D3DTS_PROJECTION, &matProj);
+//	hge->Gfx_SetTransform(D3DTS_PROJECTION, &matProj);
 }
 
 bool Export::SetIni(bool extuse)
