@@ -11,7 +11,6 @@
 #endif
 #include <list>
 #include <vector>
-#include "VectorList.h"
 #include <stdio.h>
 #ifdef __WIN32
 #include <assert.h>

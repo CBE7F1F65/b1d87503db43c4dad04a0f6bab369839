@@ -107,4 +107,6 @@
 #define M_PUSH_SKIP		5
 #define M_NOPUSH_SKIP	240
 
+#define TOUCHPOINT_MAX 5
+
 #endif
