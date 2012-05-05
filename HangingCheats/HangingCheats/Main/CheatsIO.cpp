@@ -1071,9 +1071,14 @@ bool CheatsIO::DispatchInput(bool force)
 			DoUpdate();
 			return true;
 		}
-		if (commandlist[1] >= 'a' && commandlist[1] <= 'z')
+		if (commandlist[1] >= 'a' && commandlist[1] <= 'z' || commandlist[1] == '.' && possiblech)
 		{
-			nowguess.word[position] = commandlist[1];
+			char ch = commandlist[1];
+			if (ch == '.')
+			{
+				ch = possiblech;
+			}
+			nowguess.word[position] = ch;
 
 			for (list<char>::iterator it=striked.begin(); it!=striked.end();)
 			{
