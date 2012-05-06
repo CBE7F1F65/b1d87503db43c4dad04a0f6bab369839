@@ -97,16 +97,24 @@ int GameEnd()
 }
 
 #if defined __IPHONE
+bool active = false;
 int Application_Loop()
 {
 //	Export::clientSetMatrix();
-	hge->System_Start();
+	if (active) {
+		hge->System_Start();
+	}
 	return 0;
 }
 int Application_Quit()
 {
 	GameEnd();
 	return 1;
+}
+
+void Application_SetActive(bool toactive)
+{
+	active = toactive;
 }
 #endif
 
