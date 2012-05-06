@@ -13,6 +13,7 @@ extern "C" {
 	void TouchCallback_ButtonDown(float x, float y, int ID);
 	void TouchCallback_ButtonUp(float x, float y, int ID);
 	void TouchCallback_Move(float x, float y, int ID);
+	void Application_SetActive(bool active);
 #ifdef __cplusplus
 }
 #endif

@@ -16,7 +16,6 @@
 		71BAEA0C155493D0005586AB /* DES_GOBSTGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BAEA08155493D0005586AB /* DES_GOBSTGAppDelegate.m */; };
 		71BAEA0D155493D0005586AB /* HGEGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BAEA09155493D0005586AB /* HGEGLView.m */; };
 		71BAEBEA1554B3F0005586AB /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = 71BAEBE91554B3F0005586AB /* Resource */; };
-		71BAEBED1554B418005586AB /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 71BAEBEC1554B418005586AB /* title.png */; };
 		71D08EB41553746B0018CA3A /* libjpeg_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D08EB01553746B0018CA3A /* libjpeg_ios.a */; };
 		71D08EB51553746B0018CA3A /* libjpeg_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D08EB11553746B0018CA3A /* libjpeg_sim.a */; };
 		71D08EB61553746B0018CA3A /* libpng_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D08EB21553746B0018CA3A /* libpng_ios.a */; };
@@ -49,7 +48,6 @@
 		71BAEA08155493D0005586AB /* DES_GOBSTGAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DES_GOBSTGAppDelegate.m; sourceTree = "<group>"; };
 		71BAEA09155493D0005586AB /* HGEGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGEGLView.m; sourceTree = "<group>"; };
 		71BAEBE91554B3F0005586AB /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resource; path = ../../Resource; sourceTree = SOURCE_ROOT; };
-		71BAEBEC1554B418005586AB /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title.png; path = ../../Resource/title.png; sourceTree = SOURCE_ROOT; };
 		71D08EB01553746B0018CA3A /* libjpeg_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg_ios.a; path = ../../src/IPhone/libjpeg_ios.a; sourceTree = SOURCE_ROOT; };
 		71D08EB11553746B0018CA3A /* libjpeg_sim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg_sim.a; path = ../../src/IPhone/libjpeg_sim.a; sourceTree = SOURCE_ROOT; };
 		71D08EB21553746B0018CA3A /* libpng_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng_ios.a; path = ../../src/IPhone/libpng_ios.a; sourceTree = SOURCE_ROOT; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				71BAEBE91554B3F0005586AB /* Resource */,
-				71BAEBEC1554B418005586AB /* title.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* iHangingCheats-Info.plist */,
 			);
@@ -277,7 +274,6 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				71BAEBEA1554B3F0005586AB /* Resource in Resources */,
-				71BAEBED1554B418005586AB /* title.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,7 @@
     glRotatef(90.0f, 0.0f, 0.0f, 1.0f);
     glTranslatef(0.0f, -320.0f, 0.0f);
 	
+	Application_SetActive(true);
 	 glView.loopInterval = 0;
 	[glView startLoop];
 	
@@ -32,12 +33,24 @@
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-	glView.loopInterval = 0;
+	glView.loopInterval = -1;
+	Application_SetActive(false);
 }
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+	glView.loopInterval = -1;
+	Application_SetActive(false);
+}
+
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	glView.loopInterval = 0;
+	Application_SetActive(true);
+}
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+	glView.loopInterval = 0;
+	Application_SetActive(true);
 }
 
 
