@@ -36,6 +36,9 @@ public:
 
 	void AppendLog(const char * logstr);
 
+	void ChangeMode(char tomode);
+	void ChangeKeyboardLayout();
+
 	void FillRenderPos();
 
 	struct length16

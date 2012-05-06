@@ -56,6 +56,7 @@ int GameStart(int seed)
 		hge->System_Start();
 #endif
 	}
+	return 1;
 	
 }
 
@@ -91,7 +92,7 @@ int GameEnd()
 	
 	//	hge->System_Shutdown();
 	Export::Release();
-	hge->Release();
+
 	return 0;
 }
 
