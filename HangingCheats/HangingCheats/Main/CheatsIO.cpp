@@ -40,19 +40,14 @@ void CheatsIO::FillRenderPos()
 
 	float aztz = M_CLIENT_WIDTH/13;
 	ybegin = M_CLIENT_HEIGHT/4;
-	for (int i=0; i<27; i++)
-	{
-		tbl.az[i].rect.x = (i%10+2) * aztz;
-		tbl.az[i].rect.y = (i/10) * aztz + ybegin;
-		tbl.az[i].rect.w = tbl.az[i].rect.h = aztz;
-	}
+	ChangeKeyboardLayout();
 
 	for (int i=0; i<4; i++)
 	{
 		tbl.mul[i].rect.x = (i+2) * (aztz+30);
-		tbl.mul[i].rect.y = ybegin + 3 * aztz + 10;
-		tbl.mul[i].rect.w = aztz + 30;
-		tbl.mul[i].rect.h = aztz+10;
+		tbl.mul[i].rect.y = ybegin+aztz;
+		tbl.mul[i].rect.w = aztz + 25;
+		tbl.mul[i].rect.h = aztz+6;
 	}
 
 	xoffset = aztz * 1.2f;
@@ -64,9 +59,9 @@ void CheatsIO::FillRenderPos()
 		tbl.l8[i].rect.y = ybegin;
 		tbl.l8[i].rect.w = tbl.l8[i].rect.h = xoffset;
 
-		tbl.ll8[i].rect.x = (i+2)*xoffset;
-		tbl.ll8[i].rect.y = M_CLIENT_HEIGHT * 3 / 4 + 8;
-		tbl.ll8[i].rect.w = tbl.ll8[i].rect.h = xoffset;
+		tbl.ll8[i].rect.x = (i+2.5f)*(xoffset*0.9f);
+		tbl.ll8[i].rect.y = M_CLIENT_HEIGHT/4;
+		tbl.ll8[i].rect.w = tbl.ll8[i].rect.h = xoffset*0.9f;
 	}
 
 	tbl.guess.rect.x = 20;
@@ -239,10 +234,102 @@ CheatsIO::~CheatsIO()
 	Release();
 }
 
+void CheatsIO::ChangeMode(char tomode)
+{
+	mode = tomode;
+	ChangeKeyboardLayout();
+}
+
+void CheatsIO::ChangeKeyboardLayout()
+{
+	float aztz = M_CLIENT_WIDTH/13;
+	float ybegin;
+
+	if (mode == GAMEMODE_HANGING)
+	{
+		ybegin = M_CLIENT_HEIGHT/4;
+		for (int i=0; i<27; i++)
+		{
+			tbl.az[i].rect.x = (i%10+2) * aztz;
+			tbl.az[i].rect.y = (i/10) * aztz + ybegin;
+			tbl.az[i].rect.w = tbl.az[i].rect.h = aztz;
+		}
+	}
+	else
+	{
+		ybegin = M_CLIENT_HEIGHT/2;
+		for (int i=0; i<27; i++)
+		{
+			tbl.az[i].rect.w = tbl.az[i].rect.h = aztz;
+		}
+		tbl.az['q'-'a'].rect.x = 2*aztz;
+		tbl.az['q'-'a'].rect.y = ybegin;
+		tbl.az['w'-'a'].rect.x = 3*aztz;
+		tbl.az['w'-'a'].rect.y = ybegin;
+		tbl.az['e'-'a'].rect.x = 4*aztz;
+		tbl.az['e'-'a'].rect.y = ybegin;
+		tbl.az['r'-'a'].rect.x = 5*aztz;
+		tbl.az['r'-'a'].rect.y = ybegin;
+		tbl.az['t'-'a'].rect.x = 6*aztz;
+		tbl.az['t'-'a'].rect.y = ybegin;
+		tbl.az['y'-'a'].rect.x = 7*aztz;
+		tbl.az['y'-'a'].rect.y = ybegin;
+		tbl.az['u'-'a'].rect.x = 8*aztz;
+		tbl.az['u'-'a'].rect.y = ybegin;
+		tbl.az['i'-'a'].rect.x = 9*aztz;
+		tbl.az['i'-'a'].rect.y = ybegin;
+		tbl.az['o'-'a'].rect.x = 10*aztz;
+		tbl.az['o'-'a'].rect.y = ybegin;
+		tbl.az['p'-'a'].rect.x = 11*aztz;
+		tbl.az['p'-'a'].rect.y = ybegin;
+
+		float xoffset = aztz/2;
+		float yoffset = aztz;
+		tbl.az['a'-'a'].rect.x = 2*aztz+xoffset;
+		tbl.az['a'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['s'-'a'].rect.x = 3*aztz+xoffset;
+		tbl.az['s'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['d'-'a'].rect.x = 4*aztz+xoffset;
+		tbl.az['d'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['f'-'a'].rect.x = 5*aztz+xoffset;
+		tbl.az['f'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['g'-'a'].rect.x = 6*aztz+xoffset;
+		tbl.az['g'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['h'-'a'].rect.x = 7*aztz+xoffset;
+		tbl.az['h'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['j'-'a'].rect.x = 8*aztz+xoffset;
+		tbl.az['j'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['k'-'a'].rect.x = 9*aztz+xoffset;
+		tbl.az['k'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['l'-'a'].rect.x = 10*aztz+xoffset;
+		tbl.az['l'-'a'].rect.y = ybegin+yoffset;
+
+		yoffset*=2;
+		xoffset*=2;
+		tbl.az['z'-'a'].rect.x = 2*aztz+xoffset;
+		tbl.az['z'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['x'-'a'].rect.x = 3*aztz+xoffset;
+		tbl.az['x'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['c'-'a'].rect.x = 4*aztz+xoffset;
+		tbl.az['c'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['v'-'a'].rect.x = 5*aztz+xoffset;
+		tbl.az['v'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['b'-'a'].rect.x = 6*aztz+xoffset;
+		tbl.az['b'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['n'-'a'].rect.x = 7*aztz+xoffset;
+		tbl.az['n'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['m'-'a'].rect.x = 8*aztz+xoffset;
+		tbl.az['m'-'a'].rect.y = ybegin+yoffset;
+		tbl.az['z'-'a'+1].rect.x = 9*aztz+xoffset;
+		tbl.az['z'-'a'+1].rect.y = ybegin+yoffset;
+	}
+
+}
+
 void CheatsIO::Release()
 {
 	init = false;
-	mode = GAMEMODE_HANGING;
+	ChangeMode(GAMEMODE_HANGING);
 	l4words.clear();
 	l5words.clear();
 	l6words.clear();
@@ -827,15 +914,15 @@ bool CheatsIO::DispatchInput(bool force)
 		DoClear();
 		if (mode == GAMEMODE_HANGING)
 		{
-			mode = GAMEMODE_BUILDER;
+			ChangeMode(GAMEMODE_BUILDER);
 		}
 		else if (mode == GAMEMODE_BUILDER)
 		{
-			mode = GAMEMODE_SCRAMBLE;
+			ChangeMode(GAMEMODE_SCRAMBLE);
 		}
 		else
 		{
-			mode = GAMEMODE_HANGING;
+			ChangeMode(GAMEMODE_HANGING);
 		}
 		DoUpdate();
 		return true;
@@ -2079,15 +2166,16 @@ bool CheatsIO::RenderFunc()
 
 					font->Render(tbl.az[i].rect.x, tbl.az[i].rect.y+2, HGETEXT_CENTER|HGETEXT_MIDDLE, strbuff);
 				}
-				font->SetColor(0xffffffff);
 
 				if (mode != GAMEMODE_HANGING)
 				{
+					font->SetColor(0xff808080);
 					font->RenderEx(tbl.mul[0].rect.x, tbl.mul[0].rect.y+10, HGETEXT_CENTER|HGETEXT_MIDDLE, "DL%", 0.75f);
 					font->RenderEx(tbl.mul[1].rect.x, tbl.mul[1].rect.y+10, HGETEXT_CENTER|HGETEXT_MIDDLE, "TL^", 0.75f);
 					font->RenderEx(tbl.mul[2].rect.x, tbl.mul[2].rect.y+10, HGETEXT_CENTER|HGETEXT_MIDDLE, "DW&", 0.75f);
 					font->RenderEx(tbl.mul[3].rect.x, tbl.mul[3].rect.y+10, HGETEXT_CENTER|HGETEXT_MIDDLE, "TW*", 0.75f);
 				}
+				font->SetColor(0xffffffff);
 			}
 
 			if (mode == GAMEMODE_HANGING && possiblech)
@@ -2193,7 +2281,7 @@ bool CheatsIO::RenderFunc()
 			}
 
 			// floating
-			if (mode == GAMEMODE_HANGING || mode == GAMEMODE_BUILDER && !builderwords.size())
+			if (mode == GAMEMODE_HANGING || mode == GAMEMODE_BUILDER && !builderwords.size() || mode == GAMEMODE_SCRAMBLE && !builderwords.size())
 			{
 				for (int i=0; i<TOUCH_TOUCHMAX; i++)
 				{
@@ -2205,26 +2293,46 @@ bool CheatsIO::RenderFunc()
 						char tbuff[3];
 						tbuff[1] = 0;
 						tbuff[2] = 0;
+						float dispx = 0;
+						float dispy = 0;
+						float dispscale = 1.0f;
 
 						bool found = false;
+						for (int j=0; j<27; j++)
+						{
+							if (j == 26 && mode != GAMEMODE_SCRAMBLE)
+							{
+								break;
+							}
+							if (TouchButton::binding[i] == &(tbl.az[j]))
+							{
+								tbuff[0] = j+'A';
+								if (mode == GAMEMODE_HANGING)
+								{
+									dispx = x;
+									dispy = y;
+									dispscale = 1.5f;
+								}
+								else
+								{
+									dispscale = 1.75f;
+									dispx = tbl.az[j].rect.x;
+									dispy = tbl.az[j].rect.y-tbl.az[j].rect.h/2*dispscale;
+								}
+								font->SetColor(0xff00ff00);
+								font->RenderEx(dispx, dispy-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, dispscale);
+								RenderPos trect;
+								trect.x = dispx;
+								trect.y = dispy-20;
+								trect.w = 50;
+								trect.h = 50;
+								_RenderFrame(&trect, 0xff00ff00);
+								found = true;
+								break;
+							}
+						}
 						if (mode == GAMEMODE_HANGING)
 						{
-							for (int j=0; j<26; j++)
-							{
-								if (TouchButton::binding[i] == &(tbl.az[j]))
-								{
-									tbuff[0] = j+'a';
-									font->RenderEx(x, y-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, 1.5f);
-									RenderPos trect;
-									trect.x = x;
-									trect.y = y-20;
-									trect.w = 50;
-									trect.h = 50;
-									_RenderFrame(&trect);
-									found = true;
-									break;
-								}
-							}
 							if (!found && wordlength)
 							{
 								for (int k=0; k<wordlength; k++)
@@ -2236,13 +2344,14 @@ bool CheatsIO::RenderFunc()
 										{
 											tbuff[0] = '_';
 										}
+										font->SetColor(0xff00ff00);
 										font->RenderEx(x, y-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, 1.5f);
 										RenderPos trect;
 										trect.x = x;
 										trect.y = y-20;
 										trect.w = 50;
 										trect.h = 50;
-										_RenderFrame(&trect);
+										_RenderFrame(&trect, 0xff00ff00);
 										found = true;
 										break;
 									}
@@ -2277,13 +2386,20 @@ bool CheatsIO::RenderFunc()
 											break;
 										}
 									}
-									font->RenderEx(x, y-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, 1.5f);
+									if (mode == GAMEMODE_BUILDER)
+									{
+										dispx = x;
+										dispy = y;
+										dispscale = 1.5f;
+									}
+									font->SetColor(0xff00ff00);
+									font->RenderEx(dispx, dispy-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, dispscale);
 									RenderPos trect;
-									trect.x = x;
-									trect.y = y-20;
+									trect.x = dispx;
+									trect.y = dispy-20;
 									trect.w = 50;
 									trect.h = 50;
-									_RenderFrame(&trect);
+									_RenderFrame(&trect, 0xff00ff00);
 									found = true;
 									break;
 								}
@@ -2309,13 +2425,26 @@ bool CheatsIO::RenderFunc()
 											strcpy(tbuff, "TW");
 											break;
 										}
-										font->RenderEx(x, y-15, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, 1.2f);
+										if (mode == GAMEMODE_BUILDER)
+										{
+											dispx = x;
+											dispy = y;
+											dispscale = 1.5f;
+										}
+										else
+										{
+											dispscale = 1.5f;
+											dispx = tbl.mul[j].rect.x;
+											dispy = tbl.mul[j].rect.y-tbl.mul[j].rect.h/2*dispscale;
+										}
+										font->SetColor(0xff00ff00);
+										font->RenderEx(dispx, dispy-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, dispscale);
 										RenderPos trect;
-										trect.x = x;
-										trect.y = y-20;
-										trect.w = 50;
+										trect.x = dispx;
+										trect.y = dispy-20;
+										trect.w = 60;
 										trect.h = 50;
-										_RenderFrame(&trect);
+										_RenderFrame(&trect, 0xff00ff00);
 										found = true;
 										break;
 									}
