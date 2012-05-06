@@ -2309,9 +2309,9 @@ bool CheatsIO::RenderFunc()
 								tbuff[0] = j+'A';
 								if (mode == GAMEMODE_HANGING)
 								{
-									dispx = x;
-									dispy = y;
 									dispscale = 1.5f;
+									dispx = x;
+									dispy = y-tbl.az[j].rect.h/2*dispscale;
 								}
 								else
 								{
@@ -2344,11 +2344,16 @@ bool CheatsIO::RenderFunc()
 										{
 											tbuff[0] = '_';
 										}
+
+										dispscale = 1.5f;
+										dispx = x;
+										dispy = y-tbl.l8[k].rect.h/2*dispscale;
+
 										font->SetColor(0xff00ff00);
-										font->RenderEx(x, y-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, 1.5f);
+										font->RenderEx(dispx, dispy-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, dispscale);
 										RenderPos trect;
-										trect.x = x;
-										trect.y = y-20;
+										trect.x = dispx;
+										trect.y = dispy-20;
 										trect.w = 50;
 										trect.h = 50;
 										_RenderFrame(&trect, 0xff00ff00);
@@ -2388,9 +2393,9 @@ bool CheatsIO::RenderFunc()
 									}
 									if (mode == GAMEMODE_BUILDER)
 									{
-										dispx = x;
-										dispy = y;
 										dispscale = 1.5f;
+										dispx = x;
+										dispy = y-tbl.ll8[j].rect.h/2*dispscale;
 									}
 									font->SetColor(0xff00ff00);
 									font->RenderEx(dispx, dispy-20, HGETEXT_CENTER|HGETEXT_BOTTOM, tbuff, dispscale);
@@ -2427,9 +2432,9 @@ bool CheatsIO::RenderFunc()
 										}
 										if (mode == GAMEMODE_BUILDER)
 										{
-											dispx = x;
-											dispy = y;
 											dispscale = 1.5f;
+											dispx = x;
+											dispy = y-tbl.mul[j].rect.h/2*dispscale;
 										}
 										else
 										{
