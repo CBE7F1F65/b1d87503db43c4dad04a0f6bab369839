@@ -1069,7 +1069,7 @@ bool CheatsIO::DispatchInput(bool force)
 		DoUpdate();
 		return true;
 	}
-	if (!wordlength && commandlist[0] >= '4' && commandlist[1] <= '8')
+	if (!wordlength && commandlist[0] >= '4' && commandlist[0] <= '8')
 	{
 		DoClear();
 		wordlength = commandlist[0] - '0';
