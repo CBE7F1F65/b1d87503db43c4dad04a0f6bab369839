@@ -801,6 +801,10 @@ bool CheatsIO::GetInputCommand()
 	{
 		return true;
 	}
+	if (hge->Input_GetDIKey(DIK_HOME))
+	{
+		hge->System_Snapshot();
+	}
 
 	bool force = false;
 
