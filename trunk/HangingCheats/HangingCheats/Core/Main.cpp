@@ -46,7 +46,7 @@ int GameStart(int seed)
 	initExceptionHandler();
 #endif
 	
-	Export::clientInitial(true);
+	Export::clientInitial();
 	
 	if(hge->System_Initiate())
 	{
@@ -130,11 +130,11 @@ int Application_Init()
 	
 	hge->System_SetState(HGE_FRAMEFUNC, FrameFunc);
 	hge->System_SetState(HGE_RENDERFUNC, RenderFunc);
+	hge->System_SetState(HGE_USESOUND, false);
 	
 #if defined __IPHONE
 	hge->Resource_SetPath(ResourceGetBaseDirectory());
 	hge->Resource_SetPath(ResourceGetAppDirectory());
-	hge->System_SetState(HGE_USESOUND, false);
 	hge->System_SetState(HGE_MANAGELOOP, false);
 #endif
 
