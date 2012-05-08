@@ -1,20 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcproj", "{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FA197D84-4A1A-4FD4-92FA-536A84867C25} = {FA197D84-4A1A-4FD4-92FA-536A84867C25}
-		{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54} = {32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}
-	EndProjectSection
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hge", "..\src\core\hge.vcproj", "{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hge", "..\src\core\hge.vcxproj", "{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hgehelp", "..\src\helpers\hgehelp.vcproj", "{FA197D84-4A1A-4FD4-92FA-536A84867C25}"
-	ProjectSection(ProjectDependencies) = postProject
-		{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54} = {32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hgehelp", "..\src\helpers\hgehelp.vcxproj", "{FA197D84-4A1A-4FD4-92FA-536A84867C25}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaPlus", "..\LuaPlus\LuaPlus.vcproj", "{9C233F9B-D3AF-4C38-8743-45898A100640}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaPlus", "..\LuaPlus\LuaPlus.vcxproj", "{9C233F9B-D3AF-4C38-8743-45898A100640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

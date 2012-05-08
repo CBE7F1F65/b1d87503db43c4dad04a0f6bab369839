@@ -259,7 +259,7 @@ public:
 		}
 		return tex;
 	};
-	int GetTextureWidthByInfo(int ntexinfo, hgeTextureInfo * texinfo)
+	float GetTextureWidthByInfo(int ntexinfo, hgeTextureInfo * texinfo)
 	{
 		if (!texinfo || texindex>=ntexinfo)
 		{
@@ -267,7 +267,7 @@ public:
 		}
 		return texinfo[texindex].texw;
 	};
-	int GetTextureHeightByInfo(int ntexinfo, hgeTextureInfo * texinfo)
+	float GetTextureHeightByInfo(int ntexinfo, hgeTextureInfo * texinfo)
 	{
 		if (!texinfo || texindex>=ntexinfo)
 		{
