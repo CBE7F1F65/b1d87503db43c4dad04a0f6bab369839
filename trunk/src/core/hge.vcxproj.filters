@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{63664f3a-7d2c-4f79-a270-4738e32619b9}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ZLIB">
+      <UniqueIdentifier>{b5d75dbc-d0c9-4085-8c5b-2493d1cbf2c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MMGR">
+      <UniqueIdentifier>{a8504f58-d014-4c13-a2f4-4362e390c588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exception">
+      <UniqueIdentifier>{3021b5d2-35ba-443a-88ce-d5d624de2bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PSP">
+      <UniqueIdentifier>{062bcc35-f20e-494c-88eb-0c66475cb965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{a085d815-529e-408c-b469-36912712997c}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ini.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="random.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="resource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\adler32.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\compress.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\crc32.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\deflate.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\gzio.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\infback.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\inffast.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\inflate.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\inftrees.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\ioapi.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\iowin32.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\mztools.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\trees.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\uncompr.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\unzip.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\zip.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="Zlib\zutil.c">
+      <Filter>Source Files\ZLIB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mmgr\mmgr.cpp">
+      <Filter>Source Files\MMGR</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Exception\exception.c">
+      <Filter>Source Files\Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PSP\PSP_framebuffer.cpp">
+      <Filter>Source Files\PSP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PSP\PSP_graphics.cpp">
+      <Filter>Source Files\PSP</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hge.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\mmgr\mmgr.h">
+      <Filter>Source Files\MMGR</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mmgr\nommgr.h">
+      <Filter>Source Files\MMGR</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\exception.h">
+      <Filter>Source Files\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PSP\PSP_framebuffer.h">
+      <Filter>Source Files\PSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PSP\PSP_graphics.h">
+      <Filter>Source Files\PSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\hge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\hge_defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hge_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

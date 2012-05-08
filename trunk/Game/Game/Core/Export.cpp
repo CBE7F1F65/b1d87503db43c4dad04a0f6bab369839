@@ -252,7 +252,7 @@ bool Export::packFolder(const char * zipname, const char * foldername, const cha
 	int filtercount = 0;
 
 	int tfiltercount = 0;
-	for (int i=0; i<strlen(filterstr); i++)
+	for (int i=0; i<(int)strlen(filterstr); i++)
 	{
 		if (filtercount >= M_STRITOAMAX)
 		{
@@ -336,7 +336,7 @@ bool Export::packFolder(const char * zipname, const char * foldername, const cha
 	{
 		bool filtered = false;
 		strcpy(filenamebuffer, SearchData.cFileName);
-		for (int i=0; i<strlen(filenamebuffer); i++)
+		for (int i=0; i<(int)strlen(filenamebuffer); i++)
 		{
 			filenamebuffer[i] = tolower(filenamebuffer[i]);
 			if (filenamebuffer[i] == '/')
