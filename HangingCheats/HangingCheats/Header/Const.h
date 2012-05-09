@@ -79,7 +79,7 @@
 #ifdef __RELEASE
 	#define DEFAULT_RESOURCEPATH	"Resource"
 #else
-	#define DEFAULT_RESOURCEPATH	"../../Resource"
+	#define DEFAULT_RESOURCEPATH	"../Resource"
 #endif
 
 #else
@@ -92,9 +92,9 @@
 	#define DEFAULT_HGEDLLPATH		"Resource/hge.dll"
 #else
 	#ifdef _DEBUG
-		#define DEFAULT_HGEDLLPATH		"../../Resource/Debug/hge_d.dll"
+		#define DEFAULT_HGEDLLPATH		"../../Resource_Base/Debug/hge_d.dll"
 	#else
-		#define DEFAULT_HGEDLLPATH		"../../Resource/hge.dll"
+		#define DEFAULT_HGEDLLPATH		"../../Resource_Base/hge.dll"
 	#endif // _DEBUG
 #endif // __RELEASE
 
