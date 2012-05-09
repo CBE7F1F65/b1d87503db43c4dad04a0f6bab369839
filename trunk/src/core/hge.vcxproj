@@ -93,7 +93,7 @@
       <ImportLibrary>..\..\lib\vc\hge_d.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>call "PostBuildEvent.bat" ..\..\Resource\Debug\ ..\..\Resource\</Command>
+      <Command>call "PostBuildEvent.bat" ..\..\Resource_Base\Debug\ ..\..\Resource_Base\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -153,7 +153,7 @@
       <ImportLibrary>..\..\lib\vc\hge.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>call "PostBuildEvent.bat" ..\..\Resource\Debug\ ..\..\Resource\</Command>
+      <Command>call "PostBuildEvent.bat" ..\..\Resource_Base\Debug\ ..\..\Resource_Base\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
