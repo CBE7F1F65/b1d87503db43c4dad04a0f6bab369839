@@ -12,6 +12,9 @@
       <UniqueIdentifier>{58ce3268-d9f4-454f-9ecc-748f29fc8e27}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl</Extensions>
     </Filter>
+    <Filter Include="Source Files\TinyXML">
+      <UniqueIdentifier>{be3a0c5f-1712-48be-9c4e-d12f4184ade6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hgeanim.cpp">
@@ -65,6 +68,9 @@
     <ClCompile Include="..\..\mmgr\mmgr.cpp">
       <Filter>Source Files\MMGR</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\TinyXML2\tinyxml2.cpp">
+      <Filter>Source Files\TinyXML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\mmgr\mmgr.h">
@@ -117,6 +123,9 @@
     </ClInclude>
     <ClInclude Include="resources.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TinyXML2\tinyxml2.h">
+      <Filter>Source Files\TinyXML</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

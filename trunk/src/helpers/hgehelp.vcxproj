@@ -113,6 +113,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\TinyXML2\tinyxml2.cpp" />
     <ClCompile Include="hgeanim.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -231,6 +232,7 @@
     <ClInclude Include="..\..\include\hgesprite.h" />
     <ClInclude Include="..\..\include\hgestrings.h" />
     <ClInclude Include="..\..\include\hgevector.h" />
+    <ClInclude Include="..\..\TinyXML2\tinyxml2.h" />
     <ClInclude Include="parser.h" />
     <ClInclude Include="resources.h" />
   </ItemGroup>

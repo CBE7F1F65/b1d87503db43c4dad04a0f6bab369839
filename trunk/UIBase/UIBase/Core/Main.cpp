@@ -17,18 +17,61 @@ HGE *hge = NULL;
 
 int gametime = 0;
 
+#include "../UIBase/include/UIFrame.h"
+
+
 bool RenderFunc()
 {
 	hge->Gfx_BeginScene();
 	hge->Gfx_Clear(0x00000000);
+
+	UIFrameNode::GlobalRender();
 
 	hge->Gfx_EndScene();
 	
 	return false;
 }
 
+UIContainer container;
+UIContainer frame;
+
+#define _NUM 4
+UIButton button[_NUM];
+UIStatusFrame status[_NUM];
+UIHoverFrame hover[_NUM];
+UIButtonHelpFloatingContainer bhfc[_NUM];
+bool init = false;
+
 bool FrameFunc()
 {
+	UIFrameNode::GlobalUpdate();
+
+	if (!init)
+	{
+		for (int i=0; i<_NUM; i++)
+		{
+			status[i].SetXYWH(i*50+1, 1, 48, 48);
+			hover[i].SetXYWH(i*50+1, 1, 48, 48);
+			button[i].SetXYWH(i*50, 0, 50, 50);
+			bhfc[i].SetXYWH(i*50+60, 60, 100, 100);
+		}
+		container.SetXYWH(0, 0, 400, 200);
+		frame.SetXYWH(00, 0, 350, 150);
+
+		UIFrameNode::basenode.AddChild(&container);
+		container.AddChild(&frame);
+		for (int i=0; i<_NUM; i++)
+		{
+			frame.AddChild(&button[i]);
+			button[i].AddChild(&hover[i]);
+			button[i].AddChild(&status[i]);
+			button[i].AddChild(&bhfc[i]);
+		}
+
+		init = true;
+	}
+//	container.OnUpdate();
+
 	return false;
 }
 

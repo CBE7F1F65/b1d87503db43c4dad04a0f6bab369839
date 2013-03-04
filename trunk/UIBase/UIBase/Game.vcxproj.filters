@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="UIBase">
+      <UniqueIdentifier>{b634edee-a113-4b6a-b77a-340c20bdfb28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIBase\include">
+      <UniqueIdentifier>{1fa7e1f5-72e8-43fc-9e3d-392ff27e8f9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIBase\src">
+      <UniqueIdentifier>{b8db4da0-103a-419e-835e-72a913260397}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Export.cpp">
@@ -23,6 +32,15 @@
     </ClCompile>
     <ClCompile Include="Core\Main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBase\src\_blank.cpp">
+      <Filter>UIBase\src</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBase\src\UIFrame.cpp">
+      <Filter>UIBase\src</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBase\src\UIRenderManager.cpp">
+      <Filter>UIBase\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +61,15 @@
     </ClInclude>
     <ClInclude Include="Header\VectorList.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIBase\include\_blank.h">
+      <Filter>UIBase\include</Filter>
+    </ClInclude>
+    <ClInclude Include="UIBase\include\UIFrame.h">
+      <Filter>UIBase\include</Filter>
+    </ClInclude>
+    <ClInclude Include="UIBase\include\UIRnederManager.h">
+      <Filter>UIBase\include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
