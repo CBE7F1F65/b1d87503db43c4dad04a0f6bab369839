@@ -90,6 +90,9 @@
     <ClCompile Include="Core\Export.cpp" />
     <ClCompile Include="Core\InitDllLoader.cpp" />
     <ClCompile Include="Core\Main.cpp" />
+    <ClCompile Include="UIBase\src\UIFrame.cpp" />
+    <ClCompile Include="UIBase\src\UIRenderManager.cpp" />
+    <ClCompile Include="UIBase\src\_blank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Const.h" />
@@ -98,6 +101,9 @@
     <ClInclude Include="Header\Main.h" />
     <ClInclude Include="Header\MainDependency.h" />
     <ClInclude Include="Header\VectorList.h" />
+    <ClInclude Include="UIBase\include\UIFrame.h" />
+    <ClInclude Include="UIBase\include\UIRnederManager.h" />
+    <ClInclude Include="UIBase\include\_blank.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\core\hge.vcxproj">

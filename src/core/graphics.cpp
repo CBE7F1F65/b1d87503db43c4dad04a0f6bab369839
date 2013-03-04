@@ -455,7 +455,7 @@ void CALL HGE_Impl::Gfx_RenderPoint(float x, float y, float z, DWORD color)
 #endif // __WIN32
 }
 
-void CALL HGE_Impl::Gfx_RenderLine(float x1, float y1, float x2, float y2, DWORD color, float z)
+void CALL HGE_Impl::Gfx_RenderLine2(float x1, float y1, float x2, float y2, DWORD color1/* =0xFFFFFFFF */, DWORD color2/* =0xFFFFFFFF */, float z1/* =0 */, float z2/* =0 */)
 {
 #if defined __WIN32
 	if(VertArray)
@@ -463,19 +463,19 @@ void CALL HGE_Impl::Gfx_RenderLine(float x1, float y1, float x2, float y2, DWORD
 		if(CurPrimType!=HGEPRIM_LINES || nPrim>=VERTEX_BUFFER_SIZE/HGEPRIM_LINES || CurTexture || CurBlendMode!=BLEND_DEFAULT)
 		{
 			_render_batch();
-	
+
 			CurPrimType=HGEPRIM_LINES;
 			if(CurBlendMode != BLEND_DEFAULT) _SetBlendMode(BLEND_DEFAULT);
 			if(CurTexture) { pD3DDevice->SetTexture(0, 0); CurTexture=0; }
 		}
-	
+
 		int i=nPrim*HGEPRIM_LINES;
 		VertArray[i].x = x1; VertArray[i+1].x = x2;
 		VertArray[i].y = y1; VertArray[i+1].y = y2;
-		VertArray[i].z     = VertArray[i+1].z = z;
-		VertArray[i].col   = VertArray[i+1].col = color;
+		VertArray[i].z = z1; VertArray[i+1].z = z2;
+		VertArray[i].col = color1; VertArray[i+1].col = color2;
 		VertArray[i].tx    = VertArray[i+1].tx =
-		VertArray[i].ty    = VertArray[i+1].ty = 0.0f;
+			VertArray[i].ty    = VertArray[i+1].ty = 0.0f;
 
 		nPrim++;
 	}
@@ -485,15 +485,15 @@ void CALL HGE_Impl::Gfx_RenderLine(float x1, float y1, float x2, float y2, DWORD
 	{
 		return;
 	}
-	vertices[0].color = color;
+	vertices[0].color = color1;
 	vertices[0].x = x1; 
 	vertices[0].y = y1; 
-	vertices[0].z = z;
+	vertices[0].z = z1;
 
-	vertices[1].color = color;
+	vertices[1].color = color2;
 	vertices[1].x = x2; 
 	vertices[1].y = y2; 
-	vertices[1].z = z;
+	vertices[1].z = z2;
 
 	sceGuDisable(GU_TEXTURE_2D);
 	sceGuShadeModel(GU_FLAT);
@@ -502,34 +502,39 @@ void CALL HGE_Impl::Gfx_RenderLine(float x1, float y1, float x2, float y2, DWORD
 	sceGumDrawArray(GU_LINES, GU_COLOR_8888|GU_VERTEX_32BITF|GU_TRANSFORM_3D, HGEPRIM_LINES, 0, vertices);
 	sceGuEnable(GU_TEXTURE_2D);
 #elif defined __IPHONE
-	
+
 	if (CurBlendMode != BLEND_DEFAULT)
 	{
 		_SetBlendMode(BLEND_DEFAULT);
 	}
 	glDisable(GL_TEXTURE_2D);	
-	
+
 	hgeVertex vertices[HGEPRIM_LINES];
-	
+
 	vertices[0].x = x1;
 	vertices[0].y = y1;
-	vertices[0].z = z;
-	vertices[0].col = _ARGBtoABGR(color);
-	
+	vertices[0].z = z1;
+	vertices[0].col = _ARGBtoABGR(color1);
+
 	vertices[1].x = x2;
 	vertices[1].y = y2;
-	vertices[1].z = z;
-	vertices[1].col = _ARGBtoABGR(color);
-	
+	vertices[1].z = z2;
+	vertices[1].col = _ARGBtoABGR(color2);
+
 	glEnableClientState(GL_COLOR_ARRAY);
 	glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(hgeVertex), &(vertices[0].col));
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, sizeof(hgeVertex), &(vertices[0].x));
-	
+
 	glDrawArrays(GL_LINES, 0, HGEPRIM_LINES);
 	glEnable(GL_TEXTURE_2D);
-	
+
 #endif // __WIN32
+}
+
+void CALL HGE_Impl::Gfx_RenderLine(float x1, float y1, float x2, float y2, DWORD color, float z)
+{
+	Gfx_RenderLine2(x1, y1, x2, y2, color, color, z, z);
 }
 
 /************************************************************************/

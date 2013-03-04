@@ -243,6 +243,7 @@ public:
 	virtual void		CALL	Gfx_Clear(DWORD color);
 	virtual void		CALL	Gfx_RenderPoint(float x, float y, float z=0.0f, DWORD color=0xFFFFFFFF);
 	virtual void		CALL	Gfx_RenderLine(float x1, float y1, float x2, float y2, DWORD color=0xFFFFFFFF, float z=0);
+	virtual void		CALL	Gfx_RenderLine2(float x1, float y1, float x2, float y2, DWORD color1=0xFFFFFFFF, DWORD color2=0xFFFFFFFF, float z1=0, float z2=0);
 	virtual void		CALL	Gfx_RenderTriple(const hgeTriple *triple);
 	virtual void		CALL	Gfx_RenderQuad(const hgeQuad *quad);
 	virtual hgeVertex*	CALL	Gfx_StartBatch(int prim_type, HTEXTURE tex, int blend, int *max_prim);

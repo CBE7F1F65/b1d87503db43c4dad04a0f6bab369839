@@ -40,6 +40,8 @@
 #endif // WIN32
 #endif // __WIN32
 
+#include "../TinyXML2/tinyxml2.h"
+
 #ifdef __WIN32
 
 #include <windows.h>
@@ -945,6 +947,7 @@ public:
 	virtual void		CALL	Gfx_Clear(DWORD color) = 0;
 	virtual void		CALL	Gfx_RenderPoint(float x, float y, float z=0.0f, DWORD color=0xFFFFFFFF) = 0;
 	virtual void		CALL	Gfx_RenderLine(float x1, float y1, float x2, float y2, DWORD color=0xFFFFFFFF, float z=0) = 0;
+	virtual void		CALL	Gfx_RenderLine2(float x1, float y1, float x2, float y2, DWORD color1=0xFFFFFFFF, DWORD color2=0xFFFFFFFF, float z1=0, float z2=0) = 0;
 	virtual void		CALL	Gfx_RenderTriple(const hgeTriple *triple) = 0;
 	virtual void		CALL	Gfx_RenderQuad(const hgeQuad *quad) = 0;
 	virtual hgeVertex*	CALL	Gfx_StartBatch(int prim_type, HTEXTURE tex, int blend, int *max_prim) = 0;
