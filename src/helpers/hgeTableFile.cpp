@@ -47,6 +47,7 @@ hgeTableFile::hgeTableFile()
 
 hgeTableFile::~hgeTableFile()
 {
+	CloseTableFile();
 	hge->Release();
 }
 
