@@ -71,6 +71,9 @@
     <ClCompile Include="..\..\TinyXML2\tinyxml2.cpp">
       <Filter>Source Files\TinyXML</Filter>
     </ClCompile>
+    <ClCompile Include="hgeTableFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\mmgr\mmgr.h">
@@ -126,6 +129,9 @@
     </ClInclude>
     <ClInclude Include="..\..\TinyXML2\tinyxml2.h">
       <Filter>Source Files\TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\hgeTableFile.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
