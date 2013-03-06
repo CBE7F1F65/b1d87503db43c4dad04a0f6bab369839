@@ -1,0 +1,11 @@
+0x90	h5nc	0x4B	400				
+Comment	Index	SI_Name	Tex	Tex_x	Tex_y	Tex_w	Tex_h
+#							
+-	0	SI_Null	0	0	0	0	0
+-	1	SI_White	0	0	0	1	1
+-	2	SI_Empty	0	0	0	0	0
+#							
+-	10	SI_TheGuy_00	5	0	0	32	32
+-	11	SI_TheGuy_01	5	32	0	32	32
+-	12	SI_TheGuy_02	5	64	0	32	32
+-	13	SI_TheGuy_03	5	96	0	32	32

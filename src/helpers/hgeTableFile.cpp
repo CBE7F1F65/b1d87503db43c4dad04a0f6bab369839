@@ -74,7 +74,7 @@ bool hgeTableFile::ReadTableFile( const char * filename, int version, const char
 
 	if (uddata)
 	{
-		fscanf(file, "%d", &uddata);
+		fscanf(file, "%d", uddata);
 	}
 
 	lsize = linesize;
