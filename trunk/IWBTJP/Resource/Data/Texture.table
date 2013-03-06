@@ -1,0 +1,7 @@
+0x90	h5nc	0x53		
+Comment	Index	Texture	TexW	TexH
+-	0	Graphic/White.png	1	1
+-	4	Graphic/GameOver.png	1024	256
+-	5	Graphic/Player.png	256	256
+#	Player			
+-	10	Graphic/BG.png	512	512

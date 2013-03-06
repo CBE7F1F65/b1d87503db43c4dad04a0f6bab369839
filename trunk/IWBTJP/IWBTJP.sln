@@ -1,0 +1,47 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IWBTJP", "IWBTJP\IWBTJP.vcxproj", "{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hge", "..\src\core\hge.vcxproj", "{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hgehelp", "..\src\helpers\hgehelp.vcxproj", "{FA197D84-4A1A-4FD4-92FA-536A84867C25}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaPlus", "..\LuaPlus\LuaPlus.vcxproj", "{9C233F9B-D3AF-4C38-8743-45898A100640}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		FinalRelease|Win32 = FinalRelease|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}.Debug|Win32.Build.0 = Debug|Win32
+		{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}.FinalRelease|Win32.ActiveCfg = Release|Win32
+		{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}.FinalRelease|Win32.Build.0 = Release|Win32
+		{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}.Release|Win32.ActiveCfg = Release|Win32
+		{B36ED7CF-3E22-4A75-93BC-40D6BCECE0DB}.Release|Win32.Build.0 = Release|Win32
+		{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}.Debug|Win32.ActiveCfg = Debug|Win32
+		{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}.Debug|Win32.Build.0 = Debug|Win32
+		{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}.FinalRelease|Win32.ActiveCfg = Release|Win32
+		{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}.FinalRelease|Win32.Build.0 = Release|Win32
+		{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}.Release|Win32.ActiveCfg = Release|Win32
+		{32B00EEA-7CF8-44B6-82B4-0EA67C7C4E54}.Release|Win32.Build.0 = Release|Win32
+		{FA197D84-4A1A-4FD4-92FA-536A84867C25}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FA197D84-4A1A-4FD4-92FA-536A84867C25}.Debug|Win32.Build.0 = Debug|Win32
+		{FA197D84-4A1A-4FD4-92FA-536A84867C25}.FinalRelease|Win32.ActiveCfg = Release|Win32
+		{FA197D84-4A1A-4FD4-92FA-536A84867C25}.FinalRelease|Win32.Build.0 = Release|Win32
+		{FA197D84-4A1A-4FD4-92FA-536A84867C25}.Release|Win32.ActiveCfg = Release|Win32
+		{FA197D84-4A1A-4FD4-92FA-536A84867C25}.Release|Win32.Build.0 = Release|Win32
+		{9C233F9B-D3AF-4C38-8743-45898A100640}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9C233F9B-D3AF-4C38-8743-45898A100640}.Debug|Win32.Build.0 = Debug|Win32
+		{9C233F9B-D3AF-4C38-8743-45898A100640}.FinalRelease|Win32.ActiveCfg = Release|Win32
+		{9C233F9B-D3AF-4C38-8743-45898A100640}.FinalRelease|Win32.Build.0 = Release|Win32
+		{9C233F9B-D3AF-4C38-8743-45898A100640}.Release|Win32.ActiveCfg = Release|Win32
+		{9C233F9B-D3AF-4C38-8743-45898A100640}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
