@@ -1,11 +1,27 @@
 0x90	h5nc	0x4B	400				
 Comment	Index	SI_Name	Tex	Tex_x	Tex_y	Tex_w	Tex_h
-#							
+#	System						
 -	0	SI_Null	0	0	0	0	0
 -	1	SI_White	0	0	0	1	1
 -	2	SI_Empty	0	0	0	0	0
-#							
--	10	SI_TheGuy_00	5	0	0	32	32
--	11	SI_TheGuy_01	5	32	0	32	32
--	12	SI_TheGuy_02	5	64	0	32	32
--	13	SI_TheGuy_03	5	96	0	32	32
+#	Guy						
+-	10	SI_TheGuy_Idle_00	5	0	0	32	32
+-	11	SI_TheGuy_Idle_01	5	32	0	32	32
+-	12	SI_TheGuy_Idle_02	5	64	0	32	32
+-	13	SI_TheGuy_Idle_03	5	96	0	32	32
+-	14	SI_TheGuy_Jump_00	5	0	32	32	32
+-	15	SI_TheGuy_Jump_01	5	32	32	32	32
+-	16	SI_TheGuy_Fall_00	5	64	32	32	32
+-	17	SI_TheGuy_Fall_01	5	96	32	32	32
+-	18	SI_TheGuy_Slide_00	5	128	32	32	32
+-	19	SI_TheGuy_Slide_01	5	160	32	32	32
+-	20	SI_TheGuy_Walk_00	5	0	64	32	32
+-	21	SI_TheGuy_Walk_01	5	64	64	32	32
+-	22	SI_TheGuy_Walk_02	5	96	64	32	32
+-	23	SI_TheGuy_Walk_03	5	128	64	32	32
+#	Block						
+-	50	SI_Block_Brick_Top	10	0	64	32	32
+-	51	SI_Block_Brick	10	0	96	32	32
+-	52	SI_Block_IonBrick_Top	10	32	64	32	32
+-	53	SI_Block_IonBrick	10	32	96	32	32
+-	54	SI_Block_CrossBrick_Top	10	64	64	32	32

@@ -12,16 +12,20 @@ using namespace std;
 
 #define HGETABLEFORMATSTRMAX	16
 
+typedef int (*hgeTableFileStringTranslateFunc)(const char * str);
+
 struct hgeTableFormatOffset 
 {
 	char format[HGETABLEFORMATSTRMAX];
 	int offset;
+	hgeTableFileStringTranslateFunc func;
 };
+
 
 class hgeTableFile
 {
 public:
-	static hgeTableFile& getInstance() { static hgeTableFile instance; return instance; }
+	static hgeTableFile* PIns() { static hgeTableFile instance; return &instance; }
 
 private:
 	hgeTableFile();
@@ -32,7 +36,7 @@ private:
 public:
 
 	bool ReadTableFile(const char * filename, int version, const char * signature, int filetype, int linesize, int * uddata = NULL);
-	bool SetDataFormatOffset(int index, const char * format, int offset);
+	bool SetDataFormatOffset(int index, const char * format, int offset, hgeTableFileStringTranslateFunc func=NULL);
 	bool ReadIntoData(void * data, int structsize, int clearsize=0, bool bclose=true);
 	void CloseTableFile();
 

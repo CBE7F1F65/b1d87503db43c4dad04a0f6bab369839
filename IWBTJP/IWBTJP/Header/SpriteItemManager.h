@@ -7,7 +7,7 @@
 class SpriteItemManager
 {
 public:
-	static SpriteItemManager& getInstance() { static SpriteItemManager instance; return instance; }
+	static SpriteItemManager* PIns() { static SpriteItemManager instance; return &instance; }
 
 private:
 	SpriteItemManager();
@@ -21,7 +21,7 @@ public:
 	hgeSprite * CreateSprite(int index);
 	bool CreateSprite(int index, hgeSprite ** sprite);
 	bool ChangeSprite(int index, hgeSprite * sprite);
-	int GetIndexByName(const char * spritename);
+	static int GetIndexByName(const char * spritename);
 	hgeSprite * CreateSpriteByName(const char * spritename);
 	bool CreateSpriteByName(const char * spritename, hgeSprite ** sprite);
 	void FreeSprite(hgeSprite ** sprite);

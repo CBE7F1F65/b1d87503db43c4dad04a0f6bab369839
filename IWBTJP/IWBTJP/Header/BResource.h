@@ -2,19 +2,22 @@
 
 #include "MainDependency.h"
 #include "DataStruct.h"
+#include "Player.h"
 
 #define RSIZE_TEXTURE		(sizeof(textureData) * TEXMAX)
 #define RSIZE_MUSIC			(sizeof(musicData) * MUSICMAX)
 #define RSIZE_SPRITE		(sizeof(spriteData) * spritenumber)
 #define RSIZE_SPRITENUMBER	(sizeof(int))
+#define RSIZE_PLAYERMOTION	(sizeof(playerMotionData) * PLAYERMOTIONSETMAX)
 
-#define BRES_SPRITETABLEID	0x4B
-#define BRES_TEXTURETABLEID	0x53
+#define BRES_SPRITETABLEID			0x4B
+#define BRES_TEXTURETABLEID			0x53
+#define BRES_PLAYERMOTIONTABLEID	0x56
 
 class BResource
 {
 public:
-	static BResource& getInstance() { static BResource instance; return instance; }
+	static BResource* PIns() { static BResource instance; return &instance; }
 
 private:
 	BResource();
@@ -27,6 +30,7 @@ public:
 	bool ReadTables();
 	bool ReadTextureTable();
 	bool ReadSpriteTable();
+	bool ReadPlayerMotionTable();
 
 	void InitTexinfo();
 	bool LoadTexture(int texindex=-1);
@@ -39,6 +43,7 @@ public:
 	spriteData * spritedata;
 	int spritenumber;
 	textureData texturedata[TEXMAX];
+	playerMotionData playermotiondata[PLAYERMOTIONSETMAX];
 
 	//texture
 	HTEXTURE	tex[TEXMAX];
