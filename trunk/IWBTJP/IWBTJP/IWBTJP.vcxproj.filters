@@ -1,87 +1,134 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
+    <Filter Include="头文件">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
-    </Filter>
-    <Filter Include="Source Files\Core">
-      <UniqueIdentifier>{0ab018d3-ff1b-4af7-a70e-bddeefccd028}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Core">
+    <Filter Include="头文件\Core">
       <UniqueIdentifier>{f5869ff7-8593-4cd5-b1b6-eeeb5b6e6e93}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Process">
+    <Filter Include="头文件\Process">
+      <UniqueIdentifier>{cc3e5254-a9b5-45c6-82d3-d126d95a204d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="源文件\Core">
+      <UniqueIdentifier>{0ab018d3-ff1b-4af7-a70e-bddeefccd028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Process">
       <UniqueIdentifier>{f469ca1d-7bc9-40c1-9bf7-3b59d3e722af}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Process">
-      <UniqueIdentifier>{cc3e5254-a9b5-45c6-82d3-d126d95a204d}</UniqueIdentifier>
+    <Filter Include="头文件\Class">
+      <UniqueIdentifier>{6db8a6aa-b7f0-400d-9565-f243c66cdcae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Class">
+      <UniqueIdentifier>{8200f4c0-a060-4d4d-92ac-d11849429522}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\BResource.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>源文件\Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\Export.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>源文件\Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\SpriteItemManager.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>源文件\Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\InitDllLoader.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>源文件\Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\Main.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>源文件\Core</Filter>
     </ClCompile>
     <ClCompile Include="Process\Process.cpp">
-      <Filter>Source Files\Process</Filter>
+      <Filter>源文件\Process</Filter>
     </ClCompile>
     <ClCompile Include="Core\GameInput.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\InterObj.cpp">
+      <Filter>源文件\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\BGItem.cpp">
+      <Filter>源文件\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\BlockItem.cpp">
+      <Filter>源文件\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\PlatformItem.cpp">
+      <Filter>源文件\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\KillerItem.cpp">
+      <Filter>源文件\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\InterObjManager.cpp">
+      <Filter>源文件\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\Test.cpp">
+      <Filter>源文件\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\Player.cpp">
+      <Filter>源文件\Class</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\BResource.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\VectorList.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\Const.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\ConstResource.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\DataStruct.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\Export.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\Main.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\MainDependency.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\SpriteItemManager.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="Header\Process.h">
-      <Filter>Header Files\Process</Filter>
+      <Filter>头文件\Process</Filter>
     </ClInclude>
     <ClInclude Include="Header\GameInput.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\InterObj.h">
+      <Filter>头文件\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\BGItem.h">
+      <Filter>头文件\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\BlockItem.h">
+      <Filter>头文件\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\PlatformItem.h">
+      <Filter>头文件\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\KillerItem.h">
+      <Filter>头文件\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\InterObjManager.h">
+      <Filter>头文件\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Player.h">
+      <Filter>头文件\Class</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

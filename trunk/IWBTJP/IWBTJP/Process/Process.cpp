@@ -2,6 +2,8 @@
 #include "../Header/Export.h"
 #include "../Header/GameInput.h"
 #include "../Header/ConstResource.h"
+#include "../Header/InterObjManager.h"
+#include "../Header/BResource.h"
 
 Process::Process()
 {
@@ -16,6 +18,12 @@ void Process::Init()
 	state = STATE_INIT;
 	gametime = 0;
 	lasttime = 0;
+
+	worldxoff = 0;
+	worldyoff = 0;
+	screenwidth = M_CLIENT_WIDTH*FLT_IMUL;
+	screenheight = M_CLIENT_HEIGHT*FLT_IMUL;
+
 	GameInput::InitInput(hge);
 }
 
@@ -99,11 +107,14 @@ int Process::frame()
 
 int Process::processTitle()
 {
-	return PGO;
+	gametime = 0;
+	state = STATE_START;
+	return PTURN;
 }
 
 int Process::processStart()
 {
+	frameStart();
 	return PGO;
 }
 
@@ -112,10 +123,22 @@ int Process::processDead()
 	return PGO;
 }
 
-
 int Process::processInit()
 {
-	return PGO;
+	BResource * pbres = BResource::PIns();
+	pbres->ReadTables();
+	pbres->LoadTexture(-1);
+	Export::clientAdjustWindow();
+
+
+	Debug_Test();
+
+
+
+	state = STATE_TITLE;
+	gametime = 0;
+
+	return PTURN;
 }
 
 bool Process::reload()
@@ -137,9 +160,9 @@ int Process::getInput()
 char Process::getInputNowChar( bool wide )
 {
 	char nowchar = -1;
-	if(hge->Input_GetDIKey(GameInput::KS_FIRE) && hge->Input_GetDIJoy(GameInput::JS_FIRE))
+	if(hge->Input_GetDIKey(GameInput::KS_SHOOT) && hge->Input_GetDIJoy(GameInput::JS_SHOOT))
 	{
-		hge->Input_SetDIKey(GameInput::KS_FIRE, false);
+		hge->Input_SetDIKey(GameInput::KS_SHOOT, false);
 	}
 	if(hge->Input_GetDIKey(GameInput::KS_JUMP) && hge->Input_GetDIJoy(GameInput::JS_JUMP))
 	{
@@ -493,12 +516,12 @@ void Process::frameStart()
 
 void Process::frameEnd()
 {
-	//Action
+	InterObjManager::PIns()->Update();
 }
 
 void Process::_Render(BYTE renderflag/* =M_RENDER_NULL */)
 {
-	//Render
+	InterObjManager::PIns()->Render();
 }
 
 void Process::_RenderTar()

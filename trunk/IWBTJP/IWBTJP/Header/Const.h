@@ -16,6 +16,9 @@
 #define INTER(A, B, X)			(((B)-(A))*(X)+(A))
 #define RANDA					((LONG)(randt()) * 36000 / RAND_MAX)
 
+#define BITAND(A, B)		((A)&(B))
+#define BITOR(A, B)			((A)|(B))
+
 /*
 //////////ROTATIONX//////////
 //y = y * cosf(rotx) - z * sinf(rotx);
@@ -78,6 +81,10 @@
 
 #define TEXMAX				0x100
 #define MUSICMAX			0x40
+
+#define FLT_IMUL		100
+#define FLT_FMUL		100.0f
+#define FLT_1_FMUL		0.01f
 
 #define TEX_WHITE		0
 

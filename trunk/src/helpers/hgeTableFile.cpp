@@ -130,7 +130,17 @@ bool hgeTableFile::ReadIntoData( void * data, int structsize, int clearsize/*=0*
 
 		for (int i=0; i<lsize; i++)
 		{
-			fscanf(file, formatoffset[i].format, (BYTE *)data+tindex*structsize+formatoffset[i].offset);
+			BYTE * curpos = (BYTE *)data+tindex*structsize+formatoffset[i].offset;
+			if (formatoffset[i].func)
+			{
+				char strbuffer[MAX_PATH];
+				fscanf(file, formatoffset[i].format, strbuffer);
+				*((int *)curpos) = formatoffset[i].func(strbuffer);
+			}
+			else
+			{
+				fscanf(file, formatoffset[i].format, curpos);
+			}
 			_CHECKEOF_DATATABLE(bclose);
 		}
 	}
@@ -141,7 +151,7 @@ bool hgeTableFile::ReadIntoData( void * data, int structsize, int clearsize/*=0*
 	return true;
 }
 
-bool hgeTableFile::SetDataFormatOffset( int index, const char * format, int offset )
+bool hgeTableFile::SetDataFormatOffset( int index, const char * format, int offset, hgeTableFileStringTranslateFunc func/*=NULL*/ )
 {
 	if (index < 0 || index >= lsize)
 	{
@@ -149,6 +159,10 @@ bool hgeTableFile::SetDataFormatOffset( int index, const char * format, int offs
 	}
 	strcpy_s(formatoffset[index].format, HGETABLEFORMATSTRMAX, format);
 	formatoffset[index].offset = offset;
+	if (func)
+	{
+		formatoffset[index].func = func;
+	}
 	return true;
 }
 

@@ -28,7 +28,7 @@ void SpriteItemManager::Release()
 
 HTEXTURE SpriteItemManager::GetTexture(int index)
 {
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	if (index < 0 || index >= pbres->spritenumber)
 	{
 		return NULL;
@@ -38,7 +38,7 @@ HTEXTURE SpriteItemManager::GetTexture(int index)
 
 float SpriteItemManager::GetTexX(int index)
 {
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	if (index < 0 || index >= pbres->spritenumber)
 	{
 		return 0;
@@ -48,7 +48,7 @@ float SpriteItemManager::GetTexX(int index)
 
 float SpriteItemManager::GetTexY(int index)
 {
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	if (index < 0 || index >= pbres->spritenumber)
 	{
 		return 0;
@@ -58,7 +58,7 @@ float SpriteItemManager::GetTexY(int index)
 
 float SpriteItemManager::GetTexW(int index)
 {
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	if (index < 0 || index >= pbres->spritenumber)
 	{
 		return 0;
@@ -68,7 +68,7 @@ float SpriteItemManager::GetTexW(int index)
 
 float SpriteItemManager::GetTexH(int index)
 {
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	if (index < 0 || index >= pbres->spritenumber)
 	{
 		return 0;
@@ -86,13 +86,12 @@ int SpriteItemManager::GetIndexByName(const char * spritename)
 	{
 		return -1;
 	}
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	for (int i=0; i<pbres->spritenumber; i++)
 	{
 		if (!strcmp(spritename, pbres->spritedata[i].spritename))
 		{
 			return i;
-			break;
 		}
 	}
 	return -1;
@@ -100,7 +99,7 @@ int SpriteItemManager::GetIndexByName(const char * spritename)
 
 spriteData * SpriteItemManager::CastSprite(int index)
 {
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	if (index >= 0 && index < pbres->spritenumber)
 	{
 		return &(pbres->spritedata[index]);
@@ -147,7 +146,7 @@ hgeSprite * SpriteItemManager::CreateSprite(int index)
 	{
 		return sprite;
 	}
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	HTEXTURE tex(pbres->spritedata[index].tex, NULL);
 	SetSpriteData(sprite, tex, pbres->spritedata[index].tex_x, pbres->spritedata[index].tex_y, pbres->spritedata[index].tex_w, pbres->spritedata[index].tex_h);
 	return sprite;
@@ -221,7 +220,7 @@ bool SpriteItemManager::ChangeSprite(int index, hgeSprite * sprite)
 	{
 		return false;
 	}
-	BResource * pbres = &BResource::getInstance();
+	BResource * pbres = BResource::PIns();
 	HTEXTURE tex(pbres->spritedata[index].tex, NULL);
 	SetSpriteData(sprite, tex, pbres->spritedata[index].tex_x, pbres->spritedata[index].tex_y, pbres->spritedata[index].tex_w, pbres->spritedata[index].tex_h);
 	return true;
@@ -264,7 +263,7 @@ bool SpriteItemManager::LoadTextureWhenNeeded(HTEXTURE tex)
 {
 	if (hge->Texture_GetTexture(tex) == NULL)
 	{
-		BResource * pbres = &BResource::getInstance();
+		BResource * pbres = BResource::PIns();
 		pbres->LoadTexture(tex.texindex);
 		return true;
 	}

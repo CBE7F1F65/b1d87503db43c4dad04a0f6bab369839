@@ -11,7 +11,7 @@
 #define KSI_DOWN	1
 #define KSI_LEFT	2
 #define KSI_RIGHT	3
-#define KSI_FIRE	4
+#define KSI_SHOOT	4
 #define KSI_JUMP	5
 #define KSI_SUICIDE	6
 #define KSI_SPECIAL	7
@@ -26,7 +26,7 @@
 #define KS_DOWN_(X)		gameinput[(X)].keyKS.keyDown
 #define KS_LEFT_(X)		gameinput[(X)].keyKS.keyLeft
 #define KS_RIGHT_(X)	gameinput[(X)].keyKS.keyRight
-#define KS_FIRE_(X)		gameinput[(X)].keyKS.keyFire
+#define KS_SHOOT_(X)		gameinput[(X)].keyKS.keyFire
 #define KS_JUMP_(X)		gameinput[(X)].keyKS.keyJump
 #define KS_SUICIDE_(X)	gameinput[(X)].keyKS.keySuicide
 #define KS_SPECIAL_(X)	gameinput[(X)].keyKS.keySpecial
@@ -41,7 +41,7 @@
 #define KS_DOWN		KS_DOWN_(0)
 #define KS_LEFT		KS_LEFT_(0)
 #define KS_RIGHT	KS_RIGHT_(0)
-#define KS_FIRE		KS_FIRE_(0)
+#define KS_SHOOT		KS_SHOOT_(0)
 #define KS_JUMP		KS_JUMP_(0)
 #define KS_SUICIDE	KS_SUICIDE_(0)
 #define KS_SPECIAL	KS_SPECIAL_(0)
@@ -52,7 +52,7 @@
 #define KS_ESCAPE	KS_ESCAPE_(0)
 #define KS_CAPTURE	KS_CAPTURE_(0)
 
-#define JS_FIRE_(X)				gameinput[(X)].keyJS.joyFire
+#define JS_SHOOT_(X)				gameinput[(X)].keyJS.joyFire
 #define JS_JUMP_(X)				gameinput[(X)].keyJS.joyJump
 #define JS_SUICIDE_(X)			gameinput[(X)].keyJS.joySuicide
 #define JS_SPECIAL_(X)			gameinput[(X)].keyJS.joySpecial
@@ -60,7 +60,7 @@
 #define JS_RETRY_(X)			gameinput[(X)].keyJS.joyRetry
 #define JS_DEBUG_SPEEDUP_(X)	gameinput[(X)].keyJS.debug_joySpeedUp
 
-#define JS_FIRE		JS_FIRE_(0)
+#define JS_SHOOT		JS_SHOOT_(0)
 #define JS_JUMP		JS_JUMP_(0)
 #define JS_SUICIDE	JS_SUICIDE_(0)
 #define JS_SPECIAL	JS_SPECIAL_(0)

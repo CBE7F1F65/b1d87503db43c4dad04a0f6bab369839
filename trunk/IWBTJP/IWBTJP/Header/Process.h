@@ -23,7 +23,7 @@ enum{
 class Process 
 {
 public:
-	static Process& getInstance() { static Process instance; return instance; }
+	static Process* PIns() { static Process instance; return &instance; }
 
 private:
 	Process();
@@ -57,11 +57,21 @@ public:
 	int processStart();
 	int processDead();
 	int processInit();
+
+
+#ifdef _DEBUG
+	void Debug_Test();
+#endif
 	
 	int state;
 
 	int gametime;
 	int lasttime;
+
+	int worldxoff;
+	int worldyoff;
+	int screenwidth;
+	int screenheight;
 }; 
 
 extern HGE * hge;

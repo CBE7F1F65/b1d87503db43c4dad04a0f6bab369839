@@ -33,13 +33,13 @@ bool RenderFunc()
 
 	if (sp)
 	{
-		SpriteItemManager::getInstance().RenderSprite(sp, 100, 100);
+		SpriteItemManager::PIns().RenderSprite(sp, 100, 100);
 	}
 
 	hge->Gfx_EndScene();
 	*/
 
-	Process::getInstance().render();
+	Process::PIns()->render();
 	
 	return false;
 }
@@ -50,15 +50,15 @@ bool FrameFunc()
 	/*
 	if (!binit)
 	{
-		BResource * pbres = &BResource::getInstance();
+		BResource * pbres = &BResource::PIns();
 		pbres->ReadTables();
 		pbres->LoadTexture(-1);
-		SpriteItemManager::getInstance().CreateSprite(10, &sp);
+		SpriteItemManager::PIns().CreateSprite(10, &sp);
 		Export::clientAdjustWindow();
 		binit = true;
 	}
 	*/
-	Process * pp = &Process::getInstance();
+	Process * pp = Process::PIns();
 	if (pp->SyncInputAndCheckEscSnap())
 	{
 		return true;
@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
 
 	if(hge->System_Initiate())
 	{
-		Process::getInstance().Init();
+		Process::PIns()->Init();
 		hge->System_Start();
 	}
 
@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
 //	Process::mp.Realease();
 
 //	hge->System_Shutdown();
-	Process::getInstance().Release();
+	Process::PIns()->Release();
 	Export::Release();
 
 	return 0;

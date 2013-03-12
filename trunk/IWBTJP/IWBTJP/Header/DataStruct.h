@@ -2,6 +2,7 @@
 #define _DATASTRUCT_H
 
 #include "Const.h"
+#include "InterObj.h"
 
 struct textureData
 {
@@ -29,6 +30,17 @@ struct spriteData
 	int tex_w;
 	int tex_h;
 	int tex;
+};
+
+struct playerMotionData
+{
+	int basesiid;
+	int siidoffset[ANIMATIONMAX-1];
+	int duration[ANIMATIONMAX];
+	float bbxoff;
+	float bbyoff;
+	float bbw;
+	float bbh;
 };
 
 #endif

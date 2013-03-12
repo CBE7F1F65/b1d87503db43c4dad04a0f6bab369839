@@ -86,6 +86,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Class\BGItem.cpp" />
+    <ClCompile Include="Class\BlockItem.cpp" />
+    <ClCompile Include="Class\InterObj.cpp" />
+    <ClCompile Include="Class\InterObjManager.cpp" />
+    <ClCompile Include="Class\KillerItem.cpp" />
+    <ClCompile Include="Class\PlatformItem.cpp" />
+    <ClCompile Include="Class\Player.cpp" />
+    <ClCompile Include="Class\Test.cpp" />
     <ClCompile Include="Core\BResource.cpp" />
     <ClCompile Include="Core\Export.cpp" />
     <ClCompile Include="Core\GameInput.cpp" />
@@ -95,14 +103,21 @@
     <ClCompile Include="Process\Process.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\BGItem.h" />
+    <ClInclude Include="Header\BlockItem.h" />
     <ClInclude Include="Header\BResource.h" />
     <ClInclude Include="Header\Const.h" />
     <ClInclude Include="Header\ConstResource.h" />
     <ClInclude Include="Header\DataStruct.h" />
     <ClInclude Include="Header\Export.h" />
     <ClInclude Include="Header\GameInput.h" />
+    <ClInclude Include="Header\InterObj.h" />
+    <ClInclude Include="Header\InterObjManager.h" />
+    <ClInclude Include="Header\KillerItem.h" />
     <ClInclude Include="Header\Main.h" />
     <ClInclude Include="Header\MainDependency.h" />
+    <ClInclude Include="Header\PlatformItem.h" />
+    <ClInclude Include="Header\Player.h" />
     <ClInclude Include="Header\Process.h" />
     <ClInclude Include="Header\SpriteItemManager.h" />
     <ClInclude Include="Header\VectorList.h" />
