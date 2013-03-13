@@ -99,6 +99,7 @@
     <ClCompile Include="Core\Export.cpp" />
     <ClCompile Include="Core\Export_Lua.cpp" />
     <ClCompile Include="Core\Export_Lua_Const.cpp" />
+    <ClCompile Include="Core\Export_Lua_Execute.cpp" />
     <ClCompile Include="Core\Export_Lua_Function.cpp" />
     <ClCompile Include="Core\Export_Lua_Game.cpp" />
     <ClCompile Include="Core\Export_Lua_HGE.cpp" />
@@ -119,6 +120,7 @@
     <ClInclude Include="Header\DataStruct.h" />
     <ClInclude Include="Header\Export.h" />
     <ClInclude Include="Header\Export_Lua.h" />
+    <ClInclude Include="Header\Export_Lua_Execute.h" />
     <ClInclude Include="Header\Export_Lua_Game.h" />
     <ClInclude Include="Header\Export_Lua_HGE.h" />
     <ClInclude Include="Header\Export_Lua_HGEHelp.h" />
