@@ -4,6 +4,7 @@
 #include "../Header/ConstResource.h"
 #include "../Header/InterObjManager.h"
 #include "../Header/BResource.h"
+#include "../Header/Export_Lua.h"
 
 Process::Process()
 {
@@ -46,7 +47,7 @@ int Process::frame()
 	if(hge->Input_GetKeyState(HGEK_BACKSPACE))
 	{
 //		Scripter::scr.LoadAll();
-		state = STATE_TITLE;
+		state = STATE_INIT;
 		gametime = 0;
 		return PTURN;
 	}
@@ -126,14 +127,14 @@ int Process::processDead()
 int Process::processInit()
 {
 	BResource * pbres = BResource::PIns();
+	InterObjManager::PIns()->ClearAll();
 	pbres->ReadTables();
-	pbres->LoadTexture(-1);
+	pbres->FreeTexture();
+	pbres->LoadTexture();
 	Export::clientAdjustWindow();
-
+	Export_Lua::LoadAllFiles(hge);
 
 	Debug_Test();
-
-
 
 	state = STATE_TITLE;
 	gametime = 0;

@@ -112,6 +112,8 @@ public:
 		int fSpeedMax;
 		int fjJumpTimerMax;
 		int sjJumpTimerMax;
+		int fjJumpTimerMin;
+		int sjJumpTimerMin;
 	}baseVal, curVal;
 
 	int vSpeed;

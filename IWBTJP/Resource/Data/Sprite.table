@@ -25,3 +25,6 @@ Comment	Index	SI_Name	Tex	Tex_x	Tex_y	Tex_w	Tex_h
 -	52	SI_Block_IonBrick_Top	10	32	64	32	32
 -	53	SI_Block_IonBrick	10	32	96	32	32
 -	54	SI_Block_CrossBrick_Top	10	64	64	32	32
+#	BG						
+-	100	SI_BG_Tree	10	0	128	112	168
+-	101	SI_BG_Tree_3	10	114	128	256	168

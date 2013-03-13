@@ -120,4 +120,18 @@
 #define M_PUSH_SKIP		5
 #define M_NOPUSH_SKIP	240
 
+#define CINT(p)		(*(int *)(p))
+#define CUINT(p)	(*(DWORD *)(p))
+#define CFLOAT(p)	(*(float *)(p))
+#define CLONGLONG(p)	(*(LONGLONG *)(p))
+#define CULONGLONG(p)	(*(QWORD *)(p))
+#define CDOUBLE(p)		(*(double *)(p))
+
+#define CINTN(p)		(*(int *)(&(p)))
+#define CUINTN(p)		(*(DWORD *)(&(p)))
+#define CLONGLONGN(p)	(*(LONGLONG *)(&(p)))
+#define CULONGLONGN(p)	(*(QWORD *)(&(p)))
+#define CFLOATN(p)		(*(float *)(&(p)))
+#define CDOUBLEN(p)		(*(double *)(&(p)))
+
 #endif

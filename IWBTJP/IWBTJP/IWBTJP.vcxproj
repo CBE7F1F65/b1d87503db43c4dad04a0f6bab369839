@@ -94,8 +94,15 @@
     <ClCompile Include="Class\PlatformItem.cpp" />
     <ClCompile Include="Class\Player.cpp" />
     <ClCompile Include="Class\Test.cpp" />
+    <ClCompile Include="Core\BMath.cpp" />
     <ClCompile Include="Core\BResource.cpp" />
     <ClCompile Include="Core\Export.cpp" />
+    <ClCompile Include="Core\Export_Lua.cpp" />
+    <ClCompile Include="Core\Export_Lua_Const.cpp" />
+    <ClCompile Include="Core\Export_Lua_Function.cpp" />
+    <ClCompile Include="Core\Export_Lua_Game.cpp" />
+    <ClCompile Include="Core\Export_Lua_HGE.cpp" />
+    <ClCompile Include="Core\Export_Lua_HGEHelper.cpp" />
     <ClCompile Include="Core\GameInput.cpp" />
     <ClCompile Include="Core\InitDllLoader.cpp" />
     <ClCompile Include="Core\Main.cpp" />
@@ -105,15 +112,21 @@
   <ItemGroup>
     <ClInclude Include="Header\BGItem.h" />
     <ClInclude Include="Header\BlockItem.h" />
+    <ClInclude Include="Header\BMath.h" />
     <ClInclude Include="Header\BResource.h" />
     <ClInclude Include="Header\Const.h" />
     <ClInclude Include="Header\ConstResource.h" />
     <ClInclude Include="Header\DataStruct.h" />
     <ClInclude Include="Header\Export.h" />
+    <ClInclude Include="Header\Export_Lua.h" />
+    <ClInclude Include="Header\Export_Lua_Game.h" />
+    <ClInclude Include="Header\Export_Lua_HGE.h" />
+    <ClInclude Include="Header\Export_Lua_HGEHelp.h" />
     <ClInclude Include="Header\GameInput.h" />
     <ClInclude Include="Header\InterObj.h" />
     <ClInclude Include="Header\InterObjManager.h" />
     <ClInclude Include="Header\KillerItem.h" />
+    <ClInclude Include="Header\LuaConstDefine.h" />
     <ClInclude Include="Header\Main.h" />
     <ClInclude Include="Header\MainDependency.h" />
     <ClInclude Include="Header\PlatformItem.h" />
@@ -123,6 +136,9 @@
     <ClInclude Include="Header\VectorList.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\LuaPlus\LuaPlus.vcxproj">
+      <Project>{9c233f9b-d3af-4c38-8743-45898a100640}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\core\hge.vcxproj">
       <Project>{32b00eea-7cf8-44b6-82b4-0ea67c7c4e54}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
