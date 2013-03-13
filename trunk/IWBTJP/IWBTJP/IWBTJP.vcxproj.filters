@@ -27,6 +27,12 @@
     <Filter Include="源文件\Class">
       <UniqueIdentifier>{8200f4c0-a060-4d4d-92ac-d11849429522}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Core\Export_Lua">
+      <UniqueIdentifier>{68c4978b-c89d-47ca-9a8b-35521da0d336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Core\Export_Lua">
+      <UniqueIdentifier>{6ea9f44b-ec82-47bf-a9b5-3dfbae696040}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\BResource.cpp">
@@ -73,6 +79,27 @@
     </ClCompile>
     <ClCompile Include="Class\Player.cpp">
       <Filter>源文件\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Export_Lua.cpp">
+      <Filter>源文件\Core\Export_Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Export_Lua_Const.cpp">
+      <Filter>源文件\Core\Export_Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Export_Lua_Function.cpp">
+      <Filter>源文件\Core\Export_Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Export_Lua_Game.cpp">
+      <Filter>源文件\Core\Export_Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Export_Lua_HGE.cpp">
+      <Filter>源文件\Core\Export_Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Export_Lua_HGEHelper.cpp">
+      <Filter>源文件\Core\Export_Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BMath.cpp">
+      <Filter>源文件\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +156,24 @@
     </ClInclude>
     <ClInclude Include="Header\Player.h">
       <Filter>头文件\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Export_Lua.h">
+      <Filter>头文件\Core\Export_Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Export_Lua_Game.h">
+      <Filter>头文件\Core\Export_Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Export_Lua_HGE.h">
+      <Filter>头文件\Core\Export_Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Export_Lua_HGEHelp.h">
+      <Filter>头文件\Core\Export_Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\BMath.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\LuaConstDefine.h">
+      <Filter>头文件\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

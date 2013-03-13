@@ -35,6 +35,8 @@ using namespace std;
 	#pragma comment(lib, "hgehelp.lib")
 #endif // _DEBUG
 
+#include "BMath.h"
+
 #ifdef _DEBUG
 	#pragma comment(lib, "hge_d.lib")
 #else

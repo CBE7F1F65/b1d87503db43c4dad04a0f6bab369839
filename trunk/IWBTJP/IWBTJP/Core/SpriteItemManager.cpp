@@ -177,6 +177,7 @@ bool SpriteItemManager::SetSpriteTextureRect(hgeSprite * sprite, float texx, flo
 		return false;
 	}
 	sprite->SetTextureRect(texx, texy, texw, texh);
+	SetSpriteHotSpot(sprite, 0, 0);
 	return true;
 }
 

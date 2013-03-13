@@ -25,12 +25,14 @@ void Player::ClearSet()
 
 	baseVal.lSpeed = 200;
 	baseVal.rSpeed = 200;
-	baseVal.fjSpeed = -450;
-	baseVal.sjSpeed = -350;
-	baseVal.fSpeedAcc = 40;
-	baseVal.fSpeedMax = 400;
-	baseVal.fjJumpTimerMax = 16;
-	baseVal.sjJumpTimerMax = 10;
+	baseVal.fjSpeed = -720;
+	baseVal.sjSpeed = -600;
+	baseVal.fSpeedAcc = 30;
+	baseVal.fSpeedMax = 600;
+	baseVal.fjJumpTimerMax = 24;
+	baseVal.sjJumpTimerMax = 20;
+	baseVal.fjJumpTimerMin = 10;
+	baseVal.sjJumpTimerMin = 8;
 	curVal = baseVal;
 	vSpeed = 0;
 
@@ -59,6 +61,10 @@ void Player::PlayerUpdate()
 		bFlipX = false;
 	}
 
+	if (vSpeed > curVal.fSpeedMax)
+	{
+		vSpeed = curVal.fSpeedMax;
+	}
 	if (blockdisb)
 	{
 		ToFall();
@@ -93,11 +99,15 @@ void Player::DispatchInput()
 
 	if (nowstate.motionstate == PLAYERSTATE_FIRSTJUMPUP)
 	{
-		if (!GameInput::GetKey(playerID, KSI_JUMP) || jumptimer >= curVal.fjJumpTimerMax)
+		if (!GameInput::GetKey(playerID, KSI_JUMP)&&jumptimer>=curVal.fjJumpTimerMin || jumptimer >= curVal.fjJumpTimerMax)
 		{
 			SetMotionState(PLAYERSTATE_FIRSTJUMPFALL);
 			EnterMotion(PLAYERMOTION_FALL);
 			jumptimer = 0;
+			if (vSpeed < 0)
+			{
+				vSpeed = 0;
+			}
 		}
 		else
 		{
@@ -106,11 +116,15 @@ void Player::DispatchInput()
 	}
 	else if (nowstate.motionstate == PLAYERSTATE_SECONDJUMPUP)
 	{
-		if (!GameInput::GetKey(playerID, KSI_JUMP) || jumptimer >= curVal.sjJumpTimerMax)
+		if (!GameInput::GetKey(playerID, KSI_JUMP)&&jumptimer>=curVal.sjJumpTimerMin || jumptimer >= curVal.sjJumpTimerMax)
 		{
 			SetMotionState(PLAYERSTATE_SECONDJUMPFALL);
 			EnterMotion(PLAYERMOTION_FALL);
 			jumptimer = 0;
+			if (vSpeed < 0)
+			{
+				vSpeed = 0;
+			}
 		}
 		else
 		{
@@ -200,7 +214,8 @@ void Player::Jumping()
 {
 	++jumptimer;
 
-	float ymove = vSpeed - curVal.fSpeedAcc;
+	vSpeed += curVal.fSpeedAcc;
+	float ymove = vSpeed;
 	/*
 	if (-ymove > blockdist)
 	{
@@ -222,7 +237,7 @@ void Player::Jumping()
 		{
 			jumptimer = curVal.sjJumpTimerMax;
 		}
-		if (vSpeed > 0)
+		if (vSpeed < 0)
 		{
 			vSpeed = 0;
 		}
@@ -233,6 +248,10 @@ void Player::Falling()
 {
 	float fSpeedAcc = curVal.fSpeedAcc;
 	vSpeed += fSpeedAcc;
+	if (vSpeed > curVal.fSpeedMax)
+	{
+		vSpeed = curVal.fSpeedMax;
+	}
 	float ymove = vSpeed;
 	if (ymove >= blockdisb)
 	{
