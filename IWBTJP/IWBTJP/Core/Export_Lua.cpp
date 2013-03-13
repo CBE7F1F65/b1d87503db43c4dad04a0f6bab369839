@@ -1,5 +1,6 @@
 #include "../Header/Export_Lua.h"
 #include "../Header/Export_Lua_HGEHelp.h"
+#include "../Header/Export_Lua_Execute.h"
 #include "../Header/Const.h"
 #include "../Header/LuaConstDefine.h"
 #include "../Header/ConstResource.h"
@@ -317,6 +318,10 @@ bool Export_Lua::LoadAllFiles(HGE * hge)
 	}
 	iret = LoadPackedLuaFiles();
 	if (iret != 0)
+	{
+		return false;
+	}
+	if (!Export_Lua_Execute::InitCallbacks())
 	{
 		return false;
 	}

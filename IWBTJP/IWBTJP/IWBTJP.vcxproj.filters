@@ -101,6 +101,9 @@
     <ClCompile Include="Core\BMath.cpp">
       <Filter>源文件\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Export_Lua_Execute.cpp">
+      <Filter>源文件\Core\Export_Lua</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\BResource.h">
@@ -174,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="Header\LuaConstDefine.h">
       <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Export_Lua_Execute.h">
+      <Filter>头文件\Core\Export_Lua</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
